@@ -1,0 +1,115 @@
+image: node:16
+
+pipelines:
+  branches:
+    development:
+      - step:
+          name: Run Secret Scanner
+          script:
+            - pipe: atlassian/git-secrets-scan:0.6.1
+      - step:
+          name: Build and Test
+          deployment: development-build
+          caches:
+            - node
+          script:
+            # use Bitbucket native deployment variables for stages
+            - echo -e "VITE_BACKEND_API_URL='https://api.dev.bookingsystem.se/api/v1'\nVITE_SENTRY_ENV='development'\nVITE_SENTRY_DSN='https://0c3330ceeea540489aee15a31a390d9c@o4504446093426689.ingest.sentry.io/4504450350776320'" > .env
+            - yarn install
+            - yarn build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to Development
+          deployment: development-deploy
+          clone:
+            enabled: false
+          oidc: true
+          script:
+            # sync your files to S3
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                AWS_OIDC_ROLE_ARN: $AWS_OIDC_ROLE_ARN
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                S3_BUCKET: $DEPLOYEMNT_S3_BUCKET
+                LOCAL_PATH: 'dist'
+            # triggering a distribution invalidation to refresh the CDN caches
+            - pipe: atlassian/aws-cloudfront-invalidate:0.6.0
+              variables:
+                AWS_OIDC_ROLE_ARN: $AWS_OIDC_ROLE_ARN
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                DISTRIBUTION_ID: $CLOUDFRONT_DIST_ID
+    staging:
+      - step:
+          name: Run Secret Scanner
+          script:
+            - pipe: atlassian/git-secrets-scan:0.6.1
+      - step:
+          name: Build and Test
+          deployment: staging-build
+          caches:
+            - node
+          script:
+            # use Bitbucket native deployment variables for stages
+            - echo -e "VITE_BACKEND_API_URL='https://api.staging.bookingsystem.se/api/v1'\nVITE_SENTRY_ENV='staging'\nVITE_SENTRY_DSN='https://0c3330ceeea540489aee15a31a390d9c@o4504446093426689.ingest.sentry.io/4504450350776320'" > .env
+            - yarn
+            - yarn build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to Staging
+          deployment: staging-deploy
+          clone:
+            enabled: false
+          oidc: true
+          script:
+            # sync your files to S3
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                AWS_OIDC_ROLE_ARN: $AWS_OIDC_ROLE_ARN
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                S3_BUCKET: $DEPLOYEMNT_S3_BUCKET
+                LOCAL_PATH: 'dist'
+            # triggering a distribution invalidation to refresh the CDN caches
+            - pipe: atlassian/aws-cloudfront-invalidate:0.6.0
+              variables:
+                AWS_OIDC_ROLE_ARN: $AWS_OIDC_ROLE_ARN
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                DISTRIBUTION_ID: $CLOUDFRONT_DIST_ID
+    production:
+      - step:
+          name: Run Secret Scanner
+          script:
+            - pipe: atlassian/git-secrets-scan:0.6.1
+      - step:
+          name: Build and Test
+          deployment: production-build
+          caches:
+            - node
+          script:
+            # use Bitbucket native deployment variables for stages
+            - echo -e "VITE_BACKEND_API_URL='https://api.bookingsystem.se/api/v1'\nVITE_SENTRY_ENV='production'\nVITE_SENTRY_DSN='https://0c3330ceeea540489aee15a31a390d9c@o4504446093426689.ingest.sentry.io/4504450350776320'" > .env
+            - yarn
+            - yarn build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to Production
+          deployment: production-deploy
+          clone:
+            enabled: false
+          oidc: true
+          script:
+            # sync your files to S3
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                AWS_OIDC_ROLE_ARN: $AWS_OIDC_ROLE_ARN
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                S3_BUCKET: $DEPLOYEMNT_S3_BUCKET
+                LOCAL_PATH: 'dist'
+            # triggering a distribution invalidation to refresh the CDN caches
+            - pipe: atlassian/aws-cloudfront-invalidate:0.6.0
+              variables:
+                AWS_OIDC_ROLE_ARN: $AWS_OIDC_ROLE_ARN
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                DISTRIBUTION_ID: $CLOUDFRONT_DIST_ID

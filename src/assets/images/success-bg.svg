@@ -1,0 +1,28 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_9467_35162" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="480">
+<rect width="480" height="480" fill="url(#paint0_radial_9467_35162)"/>
+</mask>
+<g mask="url(#mask0_9467_35162)">
+<circle cx="240" cy="240" r="47.5" stroke="#EAECF0"/>
+<circle cx="240" cy="240" r="79.5" stroke="#EAECF0"/>
+<circle cx="240" cy="240" r="111.5" stroke="#EAECF0"/>
+<circle cx="240" cy="240" r="143.5" stroke="#EAECF0"/>
+<circle cx="240" cy="240" r="143.5" stroke="#EAECF0"/>
+<circle cx="240" cy="240" r="175.5" stroke="#EAECF0"/>
+<circle cx="240" cy="240" r="207.5" stroke="#EAECF0"/>
+<circle cx="240" cy="240" r="239.5" stroke="#EAECF0"/>
+</g>
+<g opacity="0.3">
+<path d="M223 238C223 228.611 230.611 221 240 221C249.389 221 257 228.611 257 238C257 247.389 249.389 255 240 255C230.611 255 223 247.389 223 238Z" stroke="#079455" stroke-width="2"/>
+</g>
+<g opacity="0.1">
+<path d="M218 238C218 225.85 227.85 216 240 216C252.15 216 262 225.85 262 238C262 250.15 252.15 260 240 260C227.85 260 218 250.15 218 238Z" stroke="#079455" stroke-width="2"/>
+</g>
+<path d="M234.75 238L238.25 241.5L245.25 234.5M251.666 238C251.666 244.443 246.443 249.666 240 249.666C233.556 249.666 228.333 244.443 228.333 238C228.333 231.556 233.556 226.333 240 226.333C246.443 226.333 251.666 231.556 251.666 238Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<radialGradient id="paint0_radial_9467_35162" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 240) rotate(90) scale(240 240)">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>
