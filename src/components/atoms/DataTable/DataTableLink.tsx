@@ -1,17 +1,15 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col } from 'antd';
-import { PropsWithChildren } from 'react';
+import { BaseButtonProps } from 'antd/lib/button/button';
+import { MouseEventHandler, PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-interface DataTableLinkProps {
-	loading?: boolean;
+interface DataTableLinkProps extends BaseButtonProps {
+	showIcon?: boolean;
 	path?: string;
-	type?: 'link' | 'button';
-	size?: 'small' | 'middle' | 'large';
-	buttonType?: 'primary' | 'default' | 'dashed' | 'link' | 'text';
-	disabled?: boolean;
-	onClick?: () => void;
+	buttonType?: 'link' | 'button';
+	onClick?: MouseEventHandler<HTMLElement>;
 }
 
 const CreateButton = styled(Button)`
@@ -21,27 +19,29 @@ const CreateButton = styled(Button)`
 `;
 
 const DataTableLink = ({
-	type = 'link',
+	type = 'primary',
 	size,
 	path,
 	children,
-	buttonType,
+	buttonType = 'button',
+	showIcon = true,
+	icon = null,
 	...resProps
 }: PropsWithChildren<DataTableLinkProps>) => {
 	return (
 		<Col>
-			{type === 'link' ? (
+			{buttonType === 'link' ? (
 				<Link to={path!}>
-					<CreateButton type='primary' size={size} icon={<PlusOutlined />}>
+					<CreateButton type={type} size={size} icon={showIcon ? icon ?? <PlusOutlined /> : null}>
 						{children}
 					</CreateButton>
 				</Link>
 			) : (
 				<CreateButton
 					{...resProps}
-					type={buttonType || 'primary'}
+					type={type}
 					size={size}
-					icon={<PlusOutlined />}
+					icon={showIcon ? icon ?? <PlusOutlined /> : null}
 				>
 					{children}
 				</CreateButton>

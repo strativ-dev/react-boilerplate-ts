@@ -7,7 +7,7 @@ import { useMutation } from 'react-query';
 import { Link, Location, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const SignIn = () => {
+const SignIn = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const { state } = useLocation() as Location & { state: Location };
@@ -83,3 +83,5 @@ export const FormHeader = styled.div`
 		font-size: 1.125rem;
 	}
 `;
+
+export default SignIn;

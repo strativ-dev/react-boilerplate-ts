@@ -3,27 +3,17 @@ import { authAPI } from '@/libs/api';
 import { App, Button, Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const ResetPassword = () => {
+const ForgotPassword = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const { message } = App.useApp();
-	const { id, token } = useParams() as { id: string; token: string };
 
 	const { mutate: handleSubmit, isLoading } = useMutation(
-		(values: API.ResetPasswordPayload) => authAPI.resetPassword({ ...values, uid: id, token }),
+		(values: { email: string }) => authAPI.forgotPassword(values.email),
 		{
-			onMutate: ({ new_password, re_new_password }) => {
-				if (!id || !token) {
-					throw new Error(t('Something went wrong!'));
-				}
-
-				if (new_password !== re_new_password) {
-					throw new Error(t('New password does not match!'));
-				}
-			},
 			onSuccess: ({ detail }) => {
 				navigate('/');
 				message.success(detail);
@@ -41,26 +31,28 @@ export const ResetPassword = () => {
 				<Typography.Title level={3} type='primary' noMargin>
 					{t('Reset Password')}
 				</Typography.Title>
+				<Typography.Text>
+					{t('An email will be sent to this address with a password reset activation link')}
+				</Typography.Text>
 			</FormHeader>
 
 			<Form.Item
-				label={t('New Password')}
-				name='new_password'
-				rules={[{ required: true, message: t('New password is required!') }]}
+				label={t('Email')}
+				name='email'
+				rules={[
+					{ required: true, message: t('Email address is required!') },
+					{ type: 'email', message: t('Email address is invalid!') },
+				]}
 			>
-				<Input.Password />
-			</Form.Item>
-			<Form.Item
-				label={t('Confirm New Password')}
-				name='re_new_password'
-				rules={[{ required: true, message: t('Confirm new password is required!') }]}
-			>
-				<Input.Password />
+				<Input placeholder={t('Email Address')} />
 			</Form.Item>
 
 			<Button htmlType='submit' type='primary' loading={isLoading}>
-				{t('Reset Password')}
+				{t('Send Reset Link')}
 			</Button>
+			<div style={{ marginTop: '12px' }}>
+				<Link to='/'>{t('Back to Sign in')}</Link>
+			</div>
 		</Form>
 	);
 };
@@ -79,3 +71,5 @@ export const FormHeader = styled.div`
 		font-size: 1.125rem;
 	}
 `;
+
+export default ForgotPassword;

@@ -9,7 +9,7 @@ import { publicRoutes } from './publicRoutes';
 
 const SignInLayout = lazy(() => import('@/components/layouts/SignInLayout'));
 const DashboardLayout = lazy(() => import('@/components/layouts/DashboardLayout'));
-const NotFound = lazy(() => import('@/pages/NotFound'));
+const NotFound = lazy(() => import('@/features/NotFound'));
 
 export const BaseRoutes = () => {
 	const { routeChange } = useStoreSelector((state) => state.app);

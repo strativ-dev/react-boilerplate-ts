@@ -3,17 +3,27 @@ import { authAPI } from '@/libs/api';
 import { App, Button, Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const ForgotPassword = () => {
+const ResetPassword = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const { message } = App.useApp();
+	const { id, token } = useParams() as { id: string; token: string };
 
 	const { mutate: handleSubmit, isLoading } = useMutation(
-		(values: { email: string }) => authAPI.forgotPassword(values.email),
+		(values: API.ResetPasswordPayload) => authAPI.resetPassword({ ...values, uid: id, token }),
 		{
+			onMutate: ({ new_password, re_new_password }) => {
+				if (!id || !token) {
+					throw new Error(t('Something went wrong!'));
+				}
+
+				if (new_password !== re_new_password) {
+					throw new Error(t('New password does not match!'));
+				}
+			},
 			onSuccess: ({ detail }) => {
 				navigate('/');
 				message.success(detail);
@@ -31,28 +41,26 @@ export const ForgotPassword = () => {
 				<Typography.Title level={3} type='primary' noMargin>
 					{t('Reset Password')}
 				</Typography.Title>
-				<Typography.Text>
-					{t('An email will be sent to this address with a password reset activation link')}
-				</Typography.Text>
 			</FormHeader>
 
 			<Form.Item
-				label={t('Email')}
-				name='email'
-				rules={[
-					{ required: true, message: t('Email address is required!') },
-					{ type: 'email', message: t('Email address is invalid!') },
-				]}
+				label={t('New Password')}
+				name='new_password'
+				rules={[{ required: true, message: t('New password is required!') }]}
 			>
-				<Input placeholder={t('Email Address')} />
+				<Input.Password />
+			</Form.Item>
+			<Form.Item
+				label={t('Confirm New Password')}
+				name='re_new_password'
+				rules={[{ required: true, message: t('Confirm new password is required!') }]}
+			>
+				<Input.Password />
 			</Form.Item>
 
 			<Button htmlType='submit' type='primary' loading={isLoading}>
-				{t('Send Reset Link')}
+				{t('Reset Password')}
 			</Button>
-			<div style={{ marginTop: '12px' }}>
-				<Link to='/'>{t('Back to Sign in')}</Link>
-			</div>
 		</Form>
 	);
 };
@@ -71,3 +79,5 @@ export const FormHeader = styled.div`
 		font-size: 1.125rem;
 	}
 `;
+
+export default ResetPassword;
