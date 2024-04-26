@@ -1,11 +1,11 @@
-import { usersAPI } from '@/libs/api';
-import { useAuth } from '@/libs/auth';
-import { useStoreDispatch, useStoreSelector } from '@/store';
-import { authActions } from '@/store/actions';
 import { ComponentType } from 'react';
 import { AccessProvider } from 'react-access-boundary';
 import { useQuery } from 'react-query';
 import { Navigate, useLocation } from 'react-router-dom';
+import { usersAPI } from '~/libs/api';
+import { useAuth } from '~/libs/auth';
+import { useStoreDispatch, useStoreSelector } from '~/store';
+import { authActions } from '~/store/actions';
 import { Spin } from '../atoms';
 
 export const withAuth = <T extends object>(WrappedComponent: ComponentType<T>) => {

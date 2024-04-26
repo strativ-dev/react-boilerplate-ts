@@ -1,6 +1,6 @@
-import { translationKeys } from '@/config/translate/i18next';
 import { DefaultOptionType } from 'antd/lib/select';
 import { useTranslation } from 'react-i18next';
+import { translationKeys } from '~/config/translate/i18next';
 
 export * from './currency.helpers';
 export * from './date.helper';

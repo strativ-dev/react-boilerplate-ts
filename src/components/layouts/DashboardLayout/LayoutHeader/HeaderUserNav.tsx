@@ -1,8 +1,3 @@
-import { usersAPI } from '@/libs/api';
-import { authService } from '@/libs/auth';
-import { PRIVATE_ROUTES } from '@/routes/paths';
-import { useStoreSelector } from '@/store';
-import { appActions } from '@/store/actions';
 import { CompressOutlined, ExpandOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Divider, Dropdown, MenuProps, Space, Switch, message } from 'antd';
 import { MenuInfo } from 'rc-menu/lib/interface';
@@ -12,6 +7,11 @@ import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { usersAPI } from '~/libs/api';
+import { authService } from '~/libs/auth';
+import { PRIVATE_ROUTES } from '~/routes/paths';
+import { useStoreSelector } from '~/store';
+import { appActions } from '~/store/actions';
 
 export const HeaderUserNav = () => {
 	const { t } = useTranslation();

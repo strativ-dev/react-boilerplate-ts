@@ -1,7 +1,8 @@
-import { usersAPI } from '@/libs/api';
 import { App, Button, Col, Form, Input, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
+
+import { usersAPI } from '~/libs/api';
 
 type FormValues = {
 	current_password: string;
@@ -9,7 +10,7 @@ type FormValues = {
 	re_new_password: string;
 };
 
-export const UpdatePassword = () => {
+const UpdatePassword = () => {
 	const { t } = useTranslation();
 	const { message } = App.useApp();
 
@@ -85,3 +86,5 @@ export const UpdatePassword = () => {
 		</Form>
 	);
 };
+
+export default UpdatePassword;

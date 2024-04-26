@@ -1,10 +1,11 @@
-import { Brand, Typography } from '@/components/atoms';
-import { authAPI } from '@/libs/api';
 import { App, Button, Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { Brand, Typography } from '~/components/atoms';
+import { authAPI } from '~/libs/api';
 
 const ResetPassword = () => {
 	const { t } = useTranslation();
@@ -13,7 +14,7 @@ const ResetPassword = () => {
 	const { id, token } = useParams() as { id: string; token: string };
 
 	const { mutate: handleSubmit, isLoading } = useMutation(
-		(values: API.ResetPasswordPayload) => authAPI.resetPassword({ ...values, uid: id, token }),
+		(values: ResetPasswordPayload) => authAPI.resetPassword({ ...values, uid: id, token }),
 		{
 			onMutate: ({ new_password, re_new_password }) => {
 				if (!id || !token) {

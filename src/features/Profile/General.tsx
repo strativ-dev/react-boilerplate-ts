@@ -1,18 +1,19 @@
-import { usersAPI } from '@/libs/api';
-import { useStoreSelector } from '@/store';
 import { App, Button, Col, Form, Input, Row } from 'antd';
 import { useAccessContext } from 'react-access-boundary';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 
-export const General = () => {
+import { usersAPI } from '~/libs/api';
+import { useStoreSelector } from '~/store';
+
+const General = () => {
 	const { t } = useTranslation();
 	const { message } = App.useApp();
 	const { user } = useStoreSelector((state) => state.auth);
 	const { isAllowedTo } = useAccessContext();
 
 	const { mutate: handleSubmit, isLoading } = useMutation(
-		(values: Partial<API.UserUpdatePayload>) =>
+		(values: Partial<UserUpdatePayload>) =>
 			usersAPI.updateUser(user!.id, {
 				...values,
 				is_superuser: user?.is_superuser || false,
@@ -114,3 +115,5 @@ export const General = () => {
 // 		}
 // 	}
 // `;
+
+export default General;

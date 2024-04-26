@@ -1,7 +1,8 @@
-import { routeNavigate } from '@/routes/utils';
 import { Button, Result } from 'antd';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { routeNavigate } from '~/routes/utils';
 
 const NotFound: FC = () => {
 	const navigate = useNavigate();

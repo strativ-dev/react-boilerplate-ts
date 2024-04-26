@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import config from '@/config';
+import config from '~/config';
 import { authService } from '../auth';
-import { UpdateStatusResponse, UpdateStausRequest } from './@types';
 import { HttpAuthService } from './httpService';
 
 class CommonAPI {

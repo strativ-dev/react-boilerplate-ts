@@ -1,12 +1,21 @@
-import { PaginateParams } from './common';
+interface Permissions {
+	codename: string;
+	content_type_id: number;
+	id: number;
+	name: string;
+}
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export interface ProfileResponse {
+interface Group {
+	id: number;
+	name: string;
+}
+
+interface ProfileResponse {
 	id: number;
 	last_login: Date;
 	is_superuser: boolean;
-	created_by?: any;
-	updated_by?: any;
+	created_by?: string;
+	updated_by?: string;
 	first_name: string;
 	last_name: string;
 	email: string;
@@ -14,14 +23,14 @@ export interface ProfileResponse {
 	is_passenger: boolean;
 	is_active: boolean;
 	date_joined: Date;
-	user_permissions: any[];
-	groups: any[];
-	permissions: any[];
+	user_permissions: string[];
+	groups: Group[];
+	permissions: Permissions[];
 	tour_guide_id?: number;
 	is_tour_guide: boolean;
 }
 
-export interface UserUpdatePayload {
+interface UserUpdatePayload {
 	first_name: string;
 	last_name: string;
 	groups: number[];
@@ -30,12 +39,12 @@ export interface UserUpdatePayload {
 	is_passenger: boolean;
 }
 
-export interface GroupsDetail {
+interface GroupsDetail {
 	id: number;
 	name: string;
 }
 
-export interface User {
+interface User {
 	id: number;
 	first_name: string;
 	last_name: string;
@@ -49,14 +58,14 @@ export interface User {
 	updated_at: Date;
 }
 
-export interface UsersResponse {
+interface UsersResponse {
 	total: number;
 	next?: any;
 	previous?: any;
 	data: User[];
 }
 
-export interface UserCreatePayload {
+interface UserCreatePayload {
 	first_name: string;
 	last_name: string;
 	email: string;
@@ -65,7 +74,7 @@ export interface UserCreatePayload {
 	is_passenger?: boolean;
 }
 
-export interface UsersPragmas extends PaginateParams {
+interface UsersPragmas extends PaginateParams {
 	email?: string;
 	name?: string;
 	is_passenger?: string;

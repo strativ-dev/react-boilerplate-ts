@@ -1,8 +1,8 @@
-import { useStoreDispatch, useStoreSelector } from '@/store';
-import { appActions } from '@/store/actions';
-import { LANGUAGE_OPTIONS } from '@/utils/constants';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useStoreDispatch, useStoreSelector } from '~/store';
+import { appActions } from '~/store/actions';
+import { LANGUAGE_OPTIONS } from '~/utils/constants';
 
 export const useLang = () => {
 	const { language } = useStoreSelector((state) => state.app);

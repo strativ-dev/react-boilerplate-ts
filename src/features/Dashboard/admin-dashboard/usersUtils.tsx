@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
 
-import { StatusColumn } from '@/components/StatusColumn';
+import { StatusColumn } from '~/components/StatusColumn';
 dayjs.extend(relativeTime);
 
 const usersUtils = () => {
@@ -14,7 +14,7 @@ const usersUtils = () => {
 	const { isAllowedTo } = useAccessContext();
 	const queryClient = useQueryClient();
 
-	const columns: ColumnsType<API.User> = [
+	const columns: ColumnsType<User> = [
 		{
 			title: t('Name'),
 			dataIndex: 'first_name',

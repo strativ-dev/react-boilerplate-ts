@@ -3,17 +3,17 @@ import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 
-import { Switch } from '@/components/atoms';
-import { translationKeys } from '@/config/translate/i18next';
-import { commonAPI } from '@/libs/api';
+import { Switch } from '~/components/atoms';
+import { translationKeys } from '~/config/translate/i18next';
+import { commonAPI } from '~/libs/api';
 
 type Props = {
 	status: boolean;
 	isDisabled?: boolean;
 	recordType?: 'is_active' | 'is_available';
 	successMessage?: translationKeys;
-	id: API.UpdateStausRequest['id'];
-	endpoint: API.UpdateStausRequest['endpoint'];
+	id: UpdateStausRequest['id'];
+	endpoint: UpdateStausRequest['endpoint'];
 	onSuccessFn?: () => void;
 };
 

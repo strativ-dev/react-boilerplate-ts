@@ -1,7 +1,7 @@
-import { LangPicker } from '@/components/atoms';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Col, Row } from 'antd';
 import { FC, createElement } from 'react';
+import { LangPicker } from '~/components/atoms';
 import { LayoutHeaderWrapper } from '../styles';
 import { BetaSwitch } from './BetaSwitch';
 import { HeaderUserNav } from './HeaderUserNav';

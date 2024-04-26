@@ -1,10 +1,10 @@
-import { useStoreSelector } from '@/store';
 import { ConfigProvider, GlobalToken, theme, ThemeConfig } from 'antd';
-import React, { FC, useEffect } from 'react';
-import { ThemeProvider } from 'styled-components';
-import useConfigurations from './useConfigurations';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
+import React, { FC, useEffect } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { useStoreSelector } from '~/store';
+import useConfigurations from './useConfigurations';
 
 interface Props {
 	loading: React.ReactNode;

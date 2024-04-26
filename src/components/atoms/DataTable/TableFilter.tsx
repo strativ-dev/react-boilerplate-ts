@@ -1,6 +1,3 @@
-import { ReactComponent as FilterIcon } from '@/assets/images/icons/funnelIcon.svg';
-import { FieldOption } from '@/components/SearchComponent';
-import { selectFilterBy } from '@/utils/helpers';
 import { CheckOutlined, ReloadOutlined } from '@ant-design/icons';
 import { Button, Card, Col, DatePicker, Input, Row, Select, Switch, Typography } from 'antd';
 import { FilterDropdownProps } from 'antd/es/table/interface';
@@ -10,6 +7,9 @@ import { FC, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { createGlobalStyle, useTheme } from 'styled-components';
+import { ReactComponent as FilterIcon } from '~/assets/images/icons/funnelIcon.svg';
+import { FieldOption } from '~/components/SearchComponent';
+import { selectFilterBy } from '~/utils/helpers';
 
 interface TableFilterProps {
 	width?: number;

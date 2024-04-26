@@ -1,8 +1,8 @@
 import { TabsProps } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import { General } from './General';
-import { UpdatePassword } from './UpdatePassword';
+import General from '../general';
+import UpdatePassword from '../update-password';
 
 const profileUtls = () => {
 	const { t } = useTranslation();

@@ -6,10 +6,10 @@ const { DASHBOARD, PROFILE } = PRIVATE_ROUTES;
 export const privateRoutes = [
 	{
 		path: DASHBOARD,
-		Component: lazy(() => import('@/features/Dashboard')),
+		Component: lazy(() => import('~/features/dashboard')),
 	},
 	{
 		path: PROFILE,
-		Component: lazy(() => import('@/features/Profile')),
+		Component: lazy(() => import('~/features/profile')),
 	},
 ];

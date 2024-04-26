@@ -1,8 +1,8 @@
-import { useAuth } from '@/libs/auth';
-import { useStoreSelector } from '@/store';
 import { ConfigProvider } from 'antd';
 import { ComponentType, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '~/libs/auth';
+import { useStoreSelector } from '~/store';
 
 export const withoutAuth = <T extends object>(WrappedComponent: ComponentType<T>) => {
 	return (props: T) => {

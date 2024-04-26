@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import config from '@/config';
-import { getPaginatedParams } from '@/utils/helpers';
+import config from '~/config';
+import { getPaginatedParams } from '~/utils/helpers';
 
 type PageParams = {
 	limit?: string;

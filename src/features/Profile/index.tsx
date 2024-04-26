@@ -2,8 +2,8 @@ import { Card, Col, Row, Tabs } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import SectionHeader from '@/components/SectionHeader';
-import profileUtls from './profileUtls';
+import SectionHeader from '~/components/SectionHeader';
+import profileUtls from './utils';
 
 const Profile = () => {
 	const [searchParams] = useSearchParams();

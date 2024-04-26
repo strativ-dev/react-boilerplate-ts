@@ -1,4 +1,8 @@
-export interface UpdateStausRequest {
+interface DynamicType {
+	[x: string]: string;
+}
+
+interface UpdateStausRequest {
 	endpoint: string;
 	id: number;
 	recordType: string;
@@ -7,19 +11,18 @@ export interface UpdateStausRequest {
 	};
 }
 
-export interface UpdateStatusResponse {
+interface UpdateStatusResponse extends DynamicType {
 	id: number;
-	[key: string]: boolean;
 }
 
-export interface Pagination<T> {
+interface Pagination<T> {
 	count: number;
 	next?: string;
 	previous?: string;
 	results: T;
 }
 
-export interface PaginateParams {
+interface PaginateParams {
 	page?: number;
 	limit?: number;
 	is_active?: boolean | string | undefined;
@@ -27,12 +30,12 @@ export interface PaginateParams {
 	category?: string;
 }
 
-export interface DEFAULT_LIST_PARAMS extends PaginateParams {
+interface DEFAULT_LIST_PARAMS extends PaginateParams {
 	is_active?: boolean;
 }
 
-export interface DefaultResponse {
+interface DefaultResponse {
 	detail: string;
 }
 
-export type Mode = 'create' | 'update';
+type Mode = 'create' | 'update';

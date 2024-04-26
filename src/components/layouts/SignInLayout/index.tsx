@@ -1,8 +1,8 @@
-import { withoutAuth } from '@/components/hoc';
-import useConfigurations from '@/components/providers/useConfigurations';
 import { Col } from 'antd';
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
+import { withoutAuth } from '~/components/hoc';
+import useConfigurations from '~/components/providers/useConfigurations';
 import { LangPicker } from '../../atoms';
 import { BGWithImage, LoginWrapper, RowWrapper } from './styles';
 
