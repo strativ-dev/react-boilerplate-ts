@@ -39,7 +39,3 @@ VITE_BACKEND_API_URL=https://reqres.in/api
 ```
 VITE_BACKEND_API_URL=https://example.com/api
 ```
-
-## License
-
-The code is available under the [MIT license](LICENSE.md).
