@@ -8,7 +8,7 @@ import profileUtls from './profileUtls';
 const Profile = () => {
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
-	const activeTab = searchParams.get('type') || 'general';
+	const activeKey = searchParams.get('type') || 'general';
 	const { t } = useTranslation();
 	const { items } = profileUtls();
 
@@ -28,7 +28,7 @@ const Profile = () => {
 					<Card>
 						<Row justify='center'>
 							<Col md={12}>
-								<Tabs defaultActiveKey={activeTab} items={items} onChange={handleTabChange} />
+								<Tabs activeKey={activeKey} items={items} onChange={handleTabChange} />
 							</Col>
 						</Row>
 					</Card>
