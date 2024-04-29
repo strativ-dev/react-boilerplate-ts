@@ -39,3 +39,6 @@ VITE_BACKEND_API_URL=https://reqres.in/api
 ```
 VITE_BACKEND_API_URL=https://example.com/api
 ```
+
+## Git conventions
+Follow git [commit conventions](https://www.conventionalcommits.org/en/v1.0.0/#summary)
