@@ -1,4 +1,4 @@
-import { ErrorException } from '@/utils';
+import { ErrorException } from '~/utils';
 import { HttpServiceConfig, RefreshTokenResponse, RequestBody, RequestOptions } from './types';
 
 export class HttpService {

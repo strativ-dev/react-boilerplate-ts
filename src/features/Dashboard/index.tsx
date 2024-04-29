@@ -1,9 +1,11 @@
-import { AdminDashboard } from './AdminDashboard';
+import AdminDashboard from './admin-dashboard';
 
-export const Dashboard = () => {
+const Dashboard = () => {
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 			<AdminDashboard />
 		</div>
 	);
 };
+
+export default Dashboard;

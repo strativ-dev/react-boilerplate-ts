@@ -1,20 +1,21 @@
-import { Brand, Typography } from '@/components/atoms';
-import { authAPI } from '@/libs/api';
-import { authService } from '@/libs/auth';
 import { App, Button, Col, Form, Input, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 import { Link, Location, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const SignIn = () => {
+import { Brand, Typography } from '~/components/atoms';
+import { authAPI } from '~/libs/api';
+import { authService } from '~/libs/auth';
+
+const SignIn = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const { state } = useLocation() as Location & { state: Location };
 	const { message } = App.useApp();
 
 	const { mutate: handleSubmit, isLoading } = useMutation(
-		(values: API.LoginPayload) => authAPI.login(values),
+		(values: LoginPayload) => authAPI.login(values),
 		{
 			onSuccess: ({ auth_token }) => {
 				navigate({ pathname: state?.pathname || 'dashboard', search: state?.search });
@@ -83,3 +84,5 @@ export const FormHeader = styled.div`
 		font-size: 1.125rem;
 	}
 `;
+
+export default SignIn;

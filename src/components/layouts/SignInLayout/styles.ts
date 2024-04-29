@@ -1,6 +1,6 @@
-import loginBG from '@/assets/images/login-bg.jpg';
 import { Row } from 'antd';
 import styled from 'styled-components';
+import loginBG from '~/assets/images/login-bg.jpg';
 
 export const RowWrapper = styled(Row)`
 	min-height: 100vh;

@@ -1,5 +1,5 @@
-import { useStoreSelector } from '@/store';
 import { useCallback, useMemo } from 'react';
+import { useStoreSelector } from '~/store';
 
 const DEFAULT_LOCALE = 'sv-SE';
 

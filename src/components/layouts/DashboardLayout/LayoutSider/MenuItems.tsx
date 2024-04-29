@@ -1,10 +1,10 @@
-import { ReactComponent as DashboarIcon } from '@/assets/images/sidebar/bar-chart.svg';
-import { translationKeys } from '@/config/translate/i18next';
-import { PRIVATE_ROUTES } from '@/routes/paths';
 import type { MenuProps } from 'antd';
 import { useCallback } from 'react';
 import { useAccessContext } from 'react-access-boundary';
 import { useTranslation } from 'react-i18next';
+import { ReactComponent as DashboarIcon } from '~/assets/images/sidebar/bar-chart.svg';
+import { translationKeys } from '~/config/translate/i18next';
+import { PRIVATE_ROUTES } from '~/routes/paths';
 
 type ITEM_GROUP = {
 	type: 'group';

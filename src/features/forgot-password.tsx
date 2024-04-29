@@ -1,12 +1,13 @@
-import { Brand, Typography } from '@/components/atoms';
-import { authAPI } from '@/libs/api';
 import { App, Button, Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const ForgotPassword = () => {
+import { Brand, Typography } from '~/components/atoms';
+import { authAPI } from '~/libs/api';
+
+const ForgotPassword = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const { message } = App.useApp();
@@ -47,12 +48,12 @@ export const ForgotPassword = () => {
 				<Input placeholder={t('Email Address')} />
 			</Form.Item>
 
-			<Button htmlType='submit' type='primary' loading={isLoading}>
-				{t('Send Reset Link')}
-			</Button>
-			<div style={{ marginTop: '12px' }}>
+			<ButtonWrapper>
+				<Button htmlType='submit' type='primary' loading={isLoading}>
+					{t('Send Reset Link')}
+				</Button>
 				<Link to='/'>{t('Back to Sign in')}</Link>
-			</div>
+			</ButtonWrapper>
 		</Form>
 	);
 };
@@ -71,3 +72,13 @@ export const FormHeader = styled.div`
 		font-size: 1.125rem;
 	}
 `;
+
+const ButtonWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.5rem;
+`;
+
+export default ForgotPassword;

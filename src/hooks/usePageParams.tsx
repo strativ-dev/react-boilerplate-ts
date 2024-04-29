@@ -1,18 +1,40 @@
 import { useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import config from '@/config';
-import { getPaginatedParams } from '@/utils/helpers';
+import config from '~/config';
+import { getPaginatedParams } from '~/utils/helpers';
 
-interface PageParams {
-	[key: string]: string;
-}
+type PageParams = {
+	limit?: string;
+	activeKey?: string;
+	params?: string[];
+};
 
-const usePageParams = (keys?: string[]) => {
+type StaticParams = {
+	current: number;
+	pageSize: number;
+	activeItem: string;
+	name: string;
+	email: string;
+	search: string;
+	status: string;
+	phone: string;
+	is_active: string;
+	handlePageChange: (page: number, size: number) => void;
+};
+
+type DynamicParams = Record<string, string>;
+
+type PageParamsResult = StaticParams & DynamicParams;
+
+const usePageParams = ({
+	params,
+	limit = `${config.itemsPerPage}`,
+	activeKey = 'active',
+}: PageParams = {}) => {
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
-	const activeItem = searchParams.get('status') || 'active';
-	const searchParamsKeys = keys ? keys.filter((key) => searchParams.has(key)) : [];
+	const activeItem = searchParams.get('status') || activeKey;
 
 	const handlePageChange = useCallback(
 		(page: number, size: number) => {
@@ -22,41 +44,35 @@ const usePageParams = (keys?: string[]) => {
 		[navigate, searchParams]
 	);
 
-	const defaultParams = {
+	const defaultParams: StaticParams = {
 		current: parseInt(searchParams.get('page') || '1'),
-		pageSize: parseInt(searchParams.get('limit') || `${config.itemsPerPage}`),
+		pageSize: parseInt(searchParams.get('limit') || limit),
 		activeItem,
 		name: searchParams.get('name') || '',
 		email: searchParams.get('email') || '',
 		search: searchParams.get('search') || '',
 		status: searchParams.get('status') || '',
 		phone: searchParams.get('phone') || '',
-		to_email: searchParams.get('to_email') || '',
+		is_active: activeItem === 'active' ? 'true' : activeItem === 'inactive' ? 'false' : '',
 		handlePageChange,
-		is_active:
-			activeItem === 'active'
-				? ('true' as string)
-				: activeItem === 'inactive'
-				? ('false' as unknown as string)
-				: '',
 	};
 
-	if (searchParamsKeys.length) {
-		const dynamicParams: PageParams = searchParamsKeys.reduce((acc, key) => {
-			acc[key] = searchParams.get(key) || '';
+	if (params && params.length) {
+		const dynamicParams: DynamicParams = {};
 
-			return acc;
-		}, {} as PageParams);
+		params.forEach((key) => {
+			if (searchParams.has(key)) {
+				dynamicParams[key] = searchParams.get(key) || '';
+			}
+		});
 
 		return {
 			...defaultParams,
 			...dynamicParams,
-		} as typeof defaultParams & PageParams;
+		} as PageParamsResult;
 	}
 
-	return {
-		...defaultParams,
-	} as typeof defaultParams & PageParams;
+	return defaultParams as PageParamsResult;
 };
 
 export default usePageParams;

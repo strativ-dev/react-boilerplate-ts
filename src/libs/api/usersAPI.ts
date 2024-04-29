@@ -1,14 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import config from '@/config';
+import config from '~/config';
 import { authService } from '../auth';
-import {
-	ProfileResponse,
-	User,
-	UserCreatePayload,
-	UsersPragmas,
-	UsersResponse,
-	UserUpdatePayload,
-} from './@types';
 import { Common } from './common';
 import { HttpAuthService } from './httpService';
 

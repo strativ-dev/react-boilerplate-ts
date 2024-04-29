@@ -1,6 +1,6 @@
-import { authAPI } from '@/libs/api';
 import { message } from 'antd';
 import { useQuery } from 'react-query';
+import { authAPI } from '~/libs/api';
 
 const useConfigurations = () =>
 	useQuery('administration-public', () => authAPI.configuration(), {

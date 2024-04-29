@@ -1,4 +1,4 @@
-import { Brand } from '@/components/atoms';
+import { Brand } from '~/components/atoms';
 
 import { Layout, Menu } from 'antd';
 import { FC, HTMLAttributes, useCallback, useEffect, useMemo, useRef, useState } from 'react';

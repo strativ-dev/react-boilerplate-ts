@@ -1,7 +1,6 @@
-import config from '@/config';
-import { store } from '@/store';
-import { appActions } from '@/store/actions';
-import { LoginConfig, LoginPayload, LoginResponse, ResetPasswordPayload } from './@types';
+import config from '~/config';
+import { store } from '~/store';
+import { appActions } from '~/store/actions';
 import { HttpService } from './httpService';
 
 class AuthAPI {

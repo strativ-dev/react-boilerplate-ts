@@ -1,6 +1,6 @@
-import { AuthService } from '@/libs/auth';
-import { store } from '@/store';
-import { appActions } from '@/store/actions';
+import { AuthService } from '~/libs/auth';
+import { store } from '~/store';
+import { appActions } from '~/store/actions';
 import { HttpService } from './http.service';
 
 export class HttpAuthService extends HttpService {

@@ -43,6 +43,7 @@ interface TableMenuOptionsProps {
 	options?: { key: string; label: string; queryKey?: string }[];
 	activeItem?: string;
 	isReset?: boolean;
+	removeKey?: string;
 	filter?: Filter | Filter[];
 }
 
@@ -57,6 +58,7 @@ const TableMenuOptions = ({
 	activeItem,
 	filter,
 	isReset = false,
+	removeKey = 'active',
 }: TableMenuOptionsProps) => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
@@ -98,12 +100,12 @@ const TableMenuOptions = ({
 			const params = new URLSearchParams(searchParams);
 			const activeOption = options?.find((item) => item.key === key);
 			if (activeOption?.queryKey) params.set(activeOption.queryKey, activeOption.key);
-			if (activeOption?.key === 'active') params.delete('status');
+			if (activeOption?.key === removeKey) params.delete('status');
 			params.delete('page');
 
 			navigate({ search: params.toString() });
 		},
-		[navigate, options, searchParams]
+		[navigate, options, searchParams, removeKey]
 	);
 
 	const handleChange = (e: RadioChangeEvent) => {

@@ -1,8 +1,8 @@
-import { Switch } from '@/components/atoms';
-import { useStoreDispatch, useStoreSelector } from '@/store';
-import { appActions } from '@/store/actions';
 import { Space, Typography } from 'antd';
 import { useMemo } from 'react';
+import { Switch } from '~/components/atoms';
+import { useStoreDispatch, useStoreSelector } from '~/store';
+import { appActions } from '~/store/actions';
 
 export const BetaSwitch = () => {
 	const { user } = useStoreSelector((state) => state.auth);

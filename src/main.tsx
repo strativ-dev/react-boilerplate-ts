@@ -1,9 +1,10 @@
 import * as Sentry from '@sentry/react';
 import { BrowserTracing } from '@sentry/tracing';
 import 'nprogress/nprogress.css';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import '@/assets/styles/fonts.css';
+import '~/assets/styles/fonts.css';
 import App from './App';
 import config from './config';
 import './config/translate';
@@ -19,7 +20,7 @@ Sentry.init({
 const element = document.getElementById('root');
 const root = createRoot(element as HTMLElement);
 root.render(
-	// <React.StrictMode>
-	<App />
-	// </React.StrictMode>
+	<StrictMode>
+		<App />
+	</StrictMode>
 );
