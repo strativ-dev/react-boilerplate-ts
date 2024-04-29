@@ -1,11 +1,18 @@
+import styled from 'styled-components';
 import AdminDashboard from './admin-dashboard';
 
 const Dashboard = () => {
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+		<Wrapper>
 			<AdminDashboard />
-		</div>
+		</Wrapper>
 	);
 };
+
+const Wrapper = styled.div`
+	display: 'flex';
+	flex-direction: 'column';
+	gap: 16;
+`;
 
 export default Dashboard;

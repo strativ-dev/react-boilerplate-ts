@@ -10,6 +10,7 @@ const Profile = () => {
 	const navigate = useNavigate();
 	const activeKey = searchParams.get('type') || 'general';
 	const { t } = useTranslation();
+
 	const { items } = profileUtls();
 
 	const handleTabChange = (key: string) => {
