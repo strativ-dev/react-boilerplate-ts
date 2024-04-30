@@ -1,6 +1,7 @@
 import nProgress from 'nprogress';
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { Spin } from '~/components/atoms';
 import { useStoreSelector } from '~/store';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './paths';

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import appSlice from './appSlice';
 import authSlice from './authSlice';
 

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Table, TableProps } from 'antd';
+
 import { AntTableContainer } from './styles';
 
 interface AnyObject {

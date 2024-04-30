@@ -1,5 +1,6 @@
 import { Col } from 'antd';
 import { PropsWithChildren } from 'react';
+
 import { TableTitle } from './styles';
 
 const DataTableTitle = ({ children }: PropsWithChildren<Record<string, unknown>>) => {

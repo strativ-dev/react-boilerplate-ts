@@ -1,5 +1,4 @@
 import { ErrorException } from '~/utils';
-import { HttpServiceConfig, RefreshTokenResponse, RequestBody, RequestOptions } from './types';
 
 export class HttpService {
 	constructor(private baseURL: string, private config: HttpServiceConfig = {}) {}

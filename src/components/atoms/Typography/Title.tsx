@@ -1,5 +1,4 @@
 import { Typography, theme } from 'antd';
-
 import { BaseType } from 'antd/lib/typography/Base';
 import { ComponentProps, FC } from 'react';
 

@@ -1,4 +1,5 @@
 import { Col, Row, Skeleton } from 'antd';
+
 import FormSection from './FormSection';
 
 export const TourUpdateSkeleton = () => {

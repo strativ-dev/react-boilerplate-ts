@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import React, { FC, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
+
 import { useStoreSelector } from '~/store';
 import useConfigurations from './useConfigurations';
 
@@ -23,11 +24,6 @@ const ConfigurationsProvider: FC<Props> = ({ loading, children }: Props) => {
 			colorLink: primaryColor,
 			fontFamily: 'Inter',
 		},
-		// components: {
-		// 	Avatar: {
-		// 		groupOverlapping: 6,
-		// 	},
-		// },
 	};
 
 	dayjs.extend(updateLocale);

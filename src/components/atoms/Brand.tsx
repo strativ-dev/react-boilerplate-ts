@@ -2,6 +2,7 @@ import { ImageProps } from 'antd';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
 import BrandImage from '~/assets/images/strativ.png';
 
 export type BrandProps = {

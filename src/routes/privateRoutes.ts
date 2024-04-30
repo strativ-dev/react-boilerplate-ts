@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+
 import { PRIVATE_ROUTES } from './paths';
 
 const { DASHBOARD, PROFILE } = PRIVATE_ROUTES;

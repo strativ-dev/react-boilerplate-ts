@@ -6,7 +6,6 @@ export default {
 	apiURL: import.meta.env.VITE_BACKEND_API_URL,
 	sentryDSN: import.meta.env.VITE_SENTRY_DSN,
 	sentryEnv: import.meta.env.VITE_SENTRY_ENV,
-	fortnoxURL: 'https://apps.fortnox.se/oauth-v1/auth',
 	itemsPerPage: 10,
 	itemsPerPageMax: 9999,
 	dateFormat: 'YYYY-MM-DD',
