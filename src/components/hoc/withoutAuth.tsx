@@ -1,6 +1,7 @@
 import { ConfigProvider } from 'antd';
 import { ComponentType, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+
 import { useAuth } from '~/libs/auth';
 import { useStoreSelector } from '~/store';
 

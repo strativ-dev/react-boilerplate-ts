@@ -1,9 +1,10 @@
 import { Col } from 'antd';
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
+
+import { LangPicker } from '~/components/atoms';
 import { withoutAuth } from '~/components/hoc';
 import useConfigurations from '~/components/providers/useConfigurations';
-import { LangPicker } from '../../atoms';
 import { BGWithImage, LoginWrapper, RowWrapper } from './styles';
 
 const SignInLayout: FC = withoutAuth(() => {

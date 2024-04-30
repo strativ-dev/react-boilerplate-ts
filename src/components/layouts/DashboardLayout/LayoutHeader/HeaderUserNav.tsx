@@ -7,6 +7,7 @@ import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import { usersAPI } from '~/libs/api';
 import { authService } from '~/libs/auth';
 import { PRIVATE_ROUTES } from '~/routes/paths';

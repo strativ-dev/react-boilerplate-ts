@@ -38,4 +38,22 @@ interface DefaultResponse {
 	detail: string;
 }
 
+type RequestOptions = {
+	headers?: Record<string, string>;
+};
+
+type RequestBody = string | FormData | null;
+
+type HttpServiceConfig = {
+	getToken?: () => string | null;
+	getRefreshToken?: () => string | null;
+	onUpdateToken?: (token: string) => void;
+	onUnauthorised?: () => void;
+	onLoading?: (status: 'start' | 'error' | 'complete') => void;
+};
+
+type RefreshTokenResponse = {
+	access_token: string;
+};
+
 type Mode = 'create' | 'update';

@@ -1,6 +1,7 @@
 import { Skeleton as ANTSkeleton, Col, Form, Row } from 'antd';
 import { SkeletonInputProps } from 'antd/lib/skeleton/Input';
 import { FC } from 'react';
+
 const FormLabelSkeleton: FC<SkeletonInputProps> = ({ style = {}, ...rest }) => (
 	<ANTSkeleton.Input active style={{ height: 17, marginBottom: 12, ...style }} {...rest} />
 );

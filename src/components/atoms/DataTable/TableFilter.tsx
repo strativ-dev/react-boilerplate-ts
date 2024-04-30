@@ -7,6 +7,7 @@ import { FC, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { createGlobalStyle, useTheme } from 'styled-components';
+
 import { ReactComponent as FilterIcon } from '~/assets/images/icons/funnelIcon.svg';
 import { FieldOption } from '~/components/SearchComponent';
 import { selectFilterBy } from '~/utils/helpers';

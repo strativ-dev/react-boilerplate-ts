@@ -2,6 +2,7 @@ import { Select, Typography } from 'antd';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+
 import { useLang } from '~/hooks';
 import { LANGUAGE_OPTIONS } from '~/utils/constants';
 
