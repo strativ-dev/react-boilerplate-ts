@@ -28,7 +28,7 @@ export const dateFormater = (date: string, format?: string) => {
 	return dayjs(date).format(format || 'MMM DD, YYYY');
 };
 
-export const DateRangeValidation = async (_: any, values: [Dayjs, Dayjs]) => {
+export const DateRangeValidation = async (_: unknown, values: [Dayjs, Dayjs]) => {
 	if (!values) return;
 	const startDate = values[0];
 	const endDate = values[1];

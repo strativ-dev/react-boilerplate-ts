@@ -18,8 +18,7 @@ const Container = styled.div<HeaderProps>`
 	background-color: ${({ theme }) => theme.colorBgBase};
 	padding: 1.5rem;
 	margin: -1.5rem -1.5rem 0 -1.5rem;
-
-	${({ marginBottom }) => (marginBottom ? `margin-bottom: 1.5rem;` : `margin-bottom: 0.5rem;`)}
+	margin-bottom: ${({ marginBottom }) => (marginBottom ? `1.5rem` : `0.5rem`)};
 
 	${({ between }) =>
 		between &&

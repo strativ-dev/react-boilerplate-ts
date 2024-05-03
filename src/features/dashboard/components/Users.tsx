@@ -7,7 +7,7 @@ import DataTable from '~/components/Atoms/DataTable';
 import useMenuOptions from '~/hooks/useMenuOptions';
 import usePageParams from '~/hooks/usePageParams';
 import { usersAPI } from '~/libs/api';
-import usersUtils from './usersUtils';
+import usersUtils from '../usersUtils';
 
 const { Header, HeaderTop, Title, Link: DataTableLink, MenuOptions, Body } = DataTable;
 

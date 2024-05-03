@@ -41,17 +41,19 @@ export const LayoutSider: FC<LayoutSiderProps> = (props) => {
 	const selectedKeys = useMemo(() => {
 		const paths = location.pathname.split('/')?.filter((item) => item !== 'dashboard');
 		return paths?.length > 1 ? paths?.filter((path) => path !== '') : paths;
-	}, []);
+	}, [location.pathname]);
 
 	const getOpenedKey = useCallback(() => {
 		const paths = location.pathname.split('/')?.filter((item) => item !== 'dashboard');
 		return paths?.length > 1 ? paths?.filter((path) => path !== '').shift() : paths.shift();
 	}, [location.pathname]);
 
-	const handleMenuClick = ({ keyPath }: any) => navigate(`${keyPath?.reverse().join('/')}`);
+	const handleMenuClick = ({ keyPath }: { keyPath: string[] }) =>
+		navigate(`${keyPath?.reverse().join('/')}`);
 
-	const handleOpenChange = (keys: any) =>
-		setOpenKeys((current) => (current.at(-1) === keys?.at(-1) ? [] : [keys.at(-1)]));
+	const handleOpenChange = (keys: string[]) => {
+		setOpenKeys((current) => (current.at(-1) === keys?.at(-1) ? [] : [keys?.at(-1) ?? '']));
+	};
 
 	useEffect(() => {
 		setOpenKeys([getOpenedKey() ?? '']);
