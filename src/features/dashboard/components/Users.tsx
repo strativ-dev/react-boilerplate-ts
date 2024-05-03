@@ -3,7 +3,7 @@ import { useAccessContext } from 'react-access-boundary';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 
-import DataTable from '~/components/Atoms/DataTable';
+import { DataTable } from '~/components/Atoms';
 import useMenuOptions from '~/hooks/useMenuOptions';
 import usePageParams from '~/hooks/usePageParams';
 import { usersAPI } from '~/libs/api';
@@ -49,9 +49,42 @@ const Users: React.FC = () => {
 							searchLabel: t('Search by email'),
 						},
 						{
-							type: 'search',
-							searchKey: 'name',
-							searchLabel: t('Search by name'),
+							type: 'date-range',
+							searchKey: 'departure_dates',
+							searchLabel: t('Departure date range'),
+							param: ['from_departure_date', 'to_departure_date'],
+							placeholder: [t('Departure from'), t('Departure to')],
+						},
+						{
+							type: 'select',
+							searchKey: 'select',
+							searchLabel: t('Select'),
+							placeholder: t('Select'),
+							options: [
+								{
+									value: '1',
+									label: 'One',
+								},
+								{
+									value: '2',
+									label: 'Two',
+								},
+							],
+						},
+						{
+							type: 'multipleSelect',
+							searchKey: 'multi-select',
+							searchLabel: t('Multi select'),
+							options: [
+								{
+									value: '1',
+									label: 'One',
+								},
+								{
+									value: '2',
+									label: 'Two',
+								},
+							],
 						},
 					]}
 				/>

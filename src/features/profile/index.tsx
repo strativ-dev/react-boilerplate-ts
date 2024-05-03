@@ -1,7 +1,8 @@
-import { Card, Col, Row, Tabs } from 'antd';
+import { Card, Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
+import { Tabs } from '~/components/Atoms';
 import SectionHeader from '~/components/SectionHeader';
 import profileUtls from './utils';
 
@@ -23,17 +24,18 @@ const Profile = () => {
 				<SectionHeader.Cancel />
 			</SectionHeader>
 
-			<Row>
-				<Col md={24}>
-					<Card>
-						<Row justify='center'>
-							<Col md={12}>
-								<Tabs activeKey={activeKey} items={items} onChange={handleTabChange} />
-							</Col>
-						</Row>
-					</Card>
-				</Col>
-			</Row>
+			<Card>
+				<Row justify='center'>
+					<Col md={12}>
+						<Tabs
+							fullWidth={false}
+							activeKey={activeKey}
+							items={items}
+							onChange={handleTabChange}
+						/>
+					</Col>
+				</Row>
+			</Card>
 		</>
 	);
 };

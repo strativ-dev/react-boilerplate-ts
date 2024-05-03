@@ -15,6 +15,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { Button } from '~/components/Atoms/Button';
 
 type Filter =
@@ -112,7 +113,7 @@ const TableMenuOptions = ({
 		handleClick(e.target.value);
 	};
 
-	const handleSearch = (value: any, id?: any) => {
+	const handleSearch = (value: any) => {
 		if (!selectedSearchKey) return;
 
 		if (value || filterValue) {
@@ -126,9 +127,6 @@ const TableMenuOptions = ({
 				if (dateValue2) searchParams.set(selectedFilter.param[1], dateValue2);
 				else searchParams.delete(selectedFilter.param[1]);
 			} else {
-				if (selectedFilter?.searchKey === 'email_event') {
-					searchParams.set('email_id', id);
-				}
 				searchParams.set(selectedSearchKey, value || filterValue);
 				searchParams.delete('page');
 			}
@@ -225,16 +223,11 @@ const TableMenuOptions = ({
 									placeholder={selectedFilter.placeholder || t('Select')}
 									options={selectedFilter.options}
 									value={filterValue}
-									onChange={(value, record) => {
+									onChange={(value) => {
 										if (!value) {
 											handleClearSearch();
 										} else {
-											if (selectedFilter?.searchKey === 'email_event') {
-												const label = Array.isArray(record) ? record[0]?.label : record?.label;
-												handleSearch(label, value);
-											} else {
-												handleSearch(value);
-											}
+											handleSearch(value);
 										}
 										setFilterValue(value);
 									}}

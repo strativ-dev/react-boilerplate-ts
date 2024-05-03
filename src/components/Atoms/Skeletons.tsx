@@ -2,7 +2,7 @@ import { Col, Row, Skeleton } from 'antd';
 
 import FormSection from './FormSection';
 
-export const TourUpdateSkeleton = () => {
+export const Skeletons = () => {
 	return (
 		<>
 			<FormSection title={<Skeleton.Input active />}>
