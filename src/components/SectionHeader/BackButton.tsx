@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ArrowLeft from '~/assets/images/icons/arrow-left.svg';
-import { Typography } from '../atoms';
+import { Typography } from '../Atoms';
 
 const BackButtonWrapper = styled.div`
 	margin-bottom: 6px;

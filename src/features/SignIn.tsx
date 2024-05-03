@@ -4,7 +4,7 @@ import { useMutation } from 'react-query';
 import { Link, Location, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Brand, Typography } from '~/components/atoms';
+import { Brand, Typography } from '~/components/Atoms';
 import { authAPI } from '~/libs/api';
 import { authService } from '~/libs/auth';
 

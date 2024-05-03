@@ -57,3 +57,13 @@ type RefreshTokenResponse = {
 };
 
 type Mode = 'create' | 'update';
+
+type ParsedUrlQuery = {
+	[key: string]: string | string[] | undefined;
+};
+
+type InitMonthType = Intl.DateTimeFormatOptions['month'];
+
+type SearchObject = {
+	[key: string]: string | number | undefined;
+};

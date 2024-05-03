@@ -1,5 +1,4 @@
 import config from '~/config';
-import { ParsedUrlQuery, SearchObject } from './types';
 
 /**
  * You can use this function to add or update URL

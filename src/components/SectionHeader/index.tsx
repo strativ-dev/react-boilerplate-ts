@@ -1,7 +1,7 @@
 import { Children, PropsWithChildren, cloneElement, isValidElement } from 'react';
 import styled from 'styled-components';
 
-import Badge from '../atoms/Badge';
+import Badge from '../Atoms/Badge';
 import BackButton from './BackButton';
 import CancelButton from './CancelButton';
 import SectionButton from './SectionButton';
