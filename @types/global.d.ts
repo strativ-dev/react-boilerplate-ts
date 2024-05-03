@@ -2,7 +2,7 @@ interface DynamicType {
 	[x: string]: string;
 }
 
-interface UpdateStausRequest {
+interface UpdateStatusRequest {
 	endpoint: string;
 	id: number;
 	recordType: string;
