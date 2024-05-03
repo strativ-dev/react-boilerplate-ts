@@ -1,7 +1,6 @@
 import { RangePickerProps } from 'antd/es/date-picker';
 import dayjs, { Dayjs } from 'dayjs';
 import { t } from 'i18next';
-import { InitMonthType } from './types';
 
 /**
  * You can use this function to get the current month

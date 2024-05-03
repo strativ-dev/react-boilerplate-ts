@@ -17,7 +17,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import config from '~/config';
-import { selectFilterBy } from '~/utils/helpers';
+import { selectFilterBy } from '~/utils';
 
 const { RangePicker } = DatePicker;
 

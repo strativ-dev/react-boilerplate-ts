@@ -2,14 +2,14 @@ import nProgress from 'nprogress';
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Spin } from '~/components/atoms';
+import { Spin } from '~/components/Atoms';
 import { useStoreSelector } from '~/store';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './paths';
 import { privateRoutes } from './privateRoutes';
 import { publicRoutes } from './publicRoutes';
 
-const SignInLayout = lazy(() => import('~/components/layouts/SignInLayout'));
-const DashboardLayout = lazy(() => import('~/components/layouts/DashboardLayout'));
+const SignInLayout = lazy(() => import('~/layouts/SignInLayout'));
+const DashboardLayout = lazy(() => import('~/layouts/DashboardLayout'));
 const NotFound = lazy(() => import('~/features/not-found'));
 
 export const BaseRoutes = () => {

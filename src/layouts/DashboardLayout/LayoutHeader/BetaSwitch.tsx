@@ -1,7 +1,7 @@
 import { Space, Typography } from 'antd';
 import { useMemo } from 'react';
 
-import { Switch } from '~/components/atoms';
+import { Switch } from '~/components/Atoms';
 import { useStoreDispatch, useStoreSelector } from '~/store';
 import { appActions } from '~/store/actions';
 

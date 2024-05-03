@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 
 import { GlobalStyles } from './assets/styles/styled';
+import { Spin } from './components/Atoms';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { Spin } from './components/atoms';
-import ConfigurationsProvider from './components/providers/ConfigurationsProvider';
+import ConfigurationsProvider from './components/Providers/ConfigurationsProvider';
 import { BaseRoutes } from './routes';
 import { persistor, store } from './store';
 
