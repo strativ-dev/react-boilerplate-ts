@@ -9,13 +9,19 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { createGlobalStyle, useTheme } from 'styled-components';
 
 import { ReactComponent as FilterIcon } from '~/assets/images/icons/funnelIcon.svg';
-import { FieldOption } from '~/components/SearchComponent';
 import { selectFilterBy } from '~/utils';
 
 interface TableFilterProps {
 	width?: number;
 	placeholder?: string;
 }
+
+interface FieldOption {
+	id?: string | number;
+	value: string | number;
+	label: string;
+}
+
 interface SelectFilter extends TableFilterProps {
 	searchKey: string;
 	filterType: 'select';

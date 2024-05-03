@@ -88,5 +88,11 @@
   "Upcoming": "Kommande",
   "View all": "Visa alla",
   "Sorry, you are not authorized to access this page.": "Tyvärr har du inte behörighet att komma åt den här sidan.",
-  "Select": "Välj"
+  "Select": "Välj",
+  "Departure date range":  "Datumintervall för avresa",
+  "Departure from":"Avgång från",
+  "Departure to":"Avgång till",
+  "Email events": "E-post händelser",
+  "Tags": "Taggar",
+  "Multi select": "Multi select"
 }

@@ -12,8 +12,8 @@ type Props = {
 	isDisabled?: boolean;
 	recordType?: 'is_active' | 'is_available';
 	successMessage?: translationKeys;
-	id: UpdateStausRequest['id'];
-	endpoint: UpdateStausRequest['endpoint'];
+	id: UpdateStatusRequest['id'];
+	endpoint: UpdateStatusRequest['endpoint'];
 	onSuccessFn?: () => void;
 };
 

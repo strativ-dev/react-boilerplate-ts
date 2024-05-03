@@ -91,5 +91,11 @@
   "Upcoming": "Upcoming",
   "View all": "View all",
   "Sorry, you are not authorized to access this page.": "Sorry, you are not authorized to access this page.",
-  "Select": "Select"
+  "Select": "Select",
+  "Departure date range": "Departure date range",
+  "Departure from":"Departure from",
+  "Departure to":"Departure to",
+  "Email events": "Email events",
+  "Tags": "Tags",
+  "Multi select": "Multi select"
 }

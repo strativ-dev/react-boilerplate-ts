@@ -6,7 +6,7 @@ import { HttpAuthService } from './httpService';
 class CommonAPI {
 	constructor(private http: HttpAuthService) {}
 
-	updateStatus({ endpoint, id, recordType, payload }: UpdateStausRequest) {
+	updateStatus({ endpoint, id, recordType, payload }: UpdateStatusRequest) {
 		return this.http.patch<UpdateStatusResponse>(
 			`${endpoint}/${id}/${recordType === 'is_active' ? 'update-status' : 'update-availability'}/`,
 			payload
