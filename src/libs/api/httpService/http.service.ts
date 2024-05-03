@@ -112,7 +112,7 @@ export class HttpService {
 					return this.request<T>(method, url, body, options);
 				}
 
-				this.config.onUnauthorised?.();
+				this.config.onUnAuthorized?.();
 			}
 
 			const error = await response.json();

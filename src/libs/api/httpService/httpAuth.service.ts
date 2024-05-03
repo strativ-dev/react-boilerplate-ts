@@ -9,7 +9,7 @@ export class HttpAuthService extends HttpService {
 			getToken: () => this.auth.getToken(),
 			// getRefreshToken: () => this.auth.getRefreshToken(),
 			// onUpdateToken: (token: string) => this.auth.setToken(token),
-			onUnauthorised: () => this.auth.removeTokens(),
+			onUnAuthorized: () => this.auth.removeTokens(),
 			onLoading: (e) => store.dispatch(appActions.updateRoute(e)),
 		});
 	}

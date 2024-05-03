@@ -48,7 +48,7 @@ type HttpServiceConfig = {
 	getToken?: () => string | null;
 	getRefreshToken?: () => string | null;
 	onUpdateToken?: (token: string) => void;
-	onUnauthorised?: () => void;
+	onUnAuthorized?: () => void;
 	onLoading?: (status: 'start' | 'error' | 'complete') => void;
 };
 
