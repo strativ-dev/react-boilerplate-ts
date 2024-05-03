@@ -1,15 +1,21 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col } from 'antd';
 import { BaseButtonProps } from 'antd/lib/button/button';
-import { MouseEventHandler, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-interface DataTableLinkProps extends BaseButtonProps {
+type MergedHTMLAttributes = Omit<
+	React.HTMLAttributes<HTMLElement> &
+		React.ButtonHTMLAttributes<HTMLElement> &
+		React.AnchorHTMLAttributes<HTMLElement>,
+	'type'
+>;
+
+interface DataTableLinkProps extends BaseButtonProps, MergedHTMLAttributes {
 	showIcon?: boolean;
 	path?: string;
 	buttonType?: 'link' | 'button';
-	onClick?: MouseEventHandler<HTMLElement>;
 }
 
 const CreateButton = styled(Button)`

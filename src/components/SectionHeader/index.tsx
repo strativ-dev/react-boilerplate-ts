@@ -9,17 +9,16 @@ import SectionSubTitle from './SectionSubTitle';
 import SectionTitle from './SectionTitle';
 
 interface HeaderProps {
-	className?: string;
 	between?: boolean;
 	marginBottom?: boolean;
+	sticky?: boolean;
 }
 
-const Container = styled.div<{ between?: boolean; marginBottom?: boolean }>`
+const Container = styled.div<HeaderProps>`
 	background-color: ${({ theme }) => theme.colorBgBase};
 	padding: 1.5rem;
 	margin: -1.5rem -1.5rem 0 -1.5rem;
-
-	${({ marginBottom }) => (marginBottom ? `margin-bottom: 1.5rem;` : `margin-bottom: 0.5rem;`)}
+	margin-bottom: ${({ marginBottom }) => (marginBottom ? `1.5rem` : `0.5rem`)};
 
 	${({ between }) =>
 		between &&
@@ -28,15 +27,13 @@ const Container = styled.div<{ between?: boolean; marginBottom?: boolean }>`
     justify-content: space-between;
     align-items: center;
   `}
+
+	${({ sticky = true }) => sticky && `position: sticky; top: -1.5rem; z-index: 10;`}
 `;
 
-const SectionHeader = ({
-	children,
-	between = false,
-	marginBottom = false,
-}: PropsWithChildren<HeaderProps>) => {
+const SectionHeader = ({ children, ...restProps }: PropsWithChildren<HeaderProps>) => {
 	return (
-		<Container between={between} marginBottom={marginBottom}>
+		<Container {...restProps}>
 			{Children.map(children, (child) => {
 				if (isValidElement(child)) {
 					return cloneElement(child);
