@@ -1,13 +1,10 @@
 import { ColumnsType } from 'antd/lib/table';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
 import { useAccessContext } from 'react-access-boundary';
 import { useTranslation } from 'react-i18next';
 import { useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
 
 import { StatusColumn } from '~/components/StatusColumn';
-dayjs.extend(relativeTime);
 
 const usersUtils = () => {
 	const { t } = useTranslation();

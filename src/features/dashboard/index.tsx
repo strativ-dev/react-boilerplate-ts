@@ -1,11 +1,7 @@
-import AdminDashboard from './admin-dashboard';
+import Users from './components/Users';
 
 const Dashboard = () => {
-	return (
-		<div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-			<AdminDashboard />
-		</div>
-	);
+	return <Users />;
 };
 
 export default Dashboard;

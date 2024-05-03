@@ -20,13 +20,13 @@
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-		"baseUrl": ".",
+		"baseUrl": "./",
 		"paths": {
 			"~/*": ["src/*"]
 		},
     "typeRoots": ["node_modules/@types", "@types"]
   },
-  "include": ["src/**/*.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
