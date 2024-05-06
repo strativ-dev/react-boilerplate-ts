@@ -1,11 +1,11 @@
 import { useCallback, useMemo } from 'react';
 
-import { useStoreSelector } from '~/store';
+import { useAppStore } from '~/store/useAppStore';
 
 const DEFAULT_LOCALE = 'sv-SE';
 
 export const useFormatCurrency = (currencyCode?: string, locale?: string) => {
-	const { language } = useStoreSelector((state) => state.app);
+	const { language } = useAppStore();
 	const code = currencyCode;
 	const currencyLocale = locale || language || DEFAULT_LOCALE;
 	const formatter = useMemo(() => {

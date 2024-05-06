@@ -3,12 +3,12 @@ import { ComponentType, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 
 import { useAuth } from '~/libs/auth';
-import { useStoreSelector } from '~/store';
+import { useAppStore } from '~/store/useAppStore';
 
 export const withoutAuth = <T extends object>(WrappedComponent: ComponentType<T>) => {
 	return (props: T) => {
 		const { isAuthenticated } = useAuth();
-		const { primaryColor } = useStoreSelector((state) => state.app);
+		const { primaryColor } = useAppStore();
 
 		useEffect(() => {
 			if (primaryColor) {
