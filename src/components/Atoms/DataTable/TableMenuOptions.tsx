@@ -188,7 +188,7 @@ const TableMenuOptions = ({
 			{filter && (
 				<Col span={12}>
 					<Row justify='end' gutter={[8, 8]}>
-						{filterOptions?.length ? (
+						{filterOptions?.length > 1 ? (
 							<Col span={8}>
 								<SearchOptionSelect
 									style={{ width: '100%' }}
