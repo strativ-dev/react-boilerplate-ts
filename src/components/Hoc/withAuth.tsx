@@ -6,28 +6,28 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { Spin } from '~/components/Atoms';
 import { usersAPI } from '~/libs/api';
 import { useAuth } from '~/libs/auth';
-import { useStoreDispatch, useStoreSelector } from '~/store';
-import { authActions } from '~/store/actions';
+import store from '~/store';
 
 export const withAuth = <T extends object>(WrappedComponent: ComponentType<T>) => {
 	return (props: T) => {
 		const location = useLocation();
 		const { isAuthenticated } = useAuth();
-		const { user, permissions } = useStoreSelector((state) => state.auth);
-		const dispatch = useStoreDispatch();
+
+		const { user, permissions, setUser, setPermissions } = store().auth;
 
 		const { isLoading } = useQuery('profile', () => usersAPI.profile(), {
 			enabled: isAuthenticated && !user,
 			onSuccess: (data) => {
 				if (data && Object.entries(data).length) {
-					dispatch(authActions.setUser(data));
+					setUser(data);
 
 					if (data?.permissions?.length) {
 						const authPermissions = data.permissions.reduce((acc, curr) => {
 							acc.push(curr.codename.toUpperCase());
 							return acc;
 						}, [] as string[]);
-						dispatch(authActions.setPermissions(authPermissions));
+
+						setPermissions(authPermissions);
 					}
 				}
 			},

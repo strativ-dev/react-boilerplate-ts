@@ -5,7 +5,7 @@ import React, { FC, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import useConfigurations from '~/components/Providers/useConfigurations';
-import { useStoreSelector } from '~/store';
+import store from '~/store';
 
 interface Props {
 	loading: React.ReactNode;
@@ -14,7 +14,7 @@ interface Props {
 
 const ConfigurationsProvider: FC<Props> = ({ loading, children }: Props) => {
 	const { data, isLoading } = useConfigurations();
-	const { primaryColor, darkMode, compactMode } = useStoreSelector((state) => state.app);
+	const { primaryColor, darkMode, compactMode } = store().app;
 	const algorithm = [darkMode ? theme.darkAlgorithm : theme.defaultAlgorithm];
 
 	const themeConfig: ThemeConfig = {

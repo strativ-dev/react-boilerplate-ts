@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Spin } from '~/components/Atoms';
-import { useStoreSelector } from '~/store';
+import store from '~/store';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './paths';
 import { privateRoutes } from './privateRoutes';
 import { publicRoutes } from './publicRoutes';
@@ -13,7 +13,7 @@ const DashboardLayout = lazy(() => import('~/layouts/DashboardLayout'));
 const NotFound = lazy(() => import('~/features/not-found'));
 
 export const BaseRoutes = () => {
-	const { routeChange } = useStoreSelector((state) => state.app);
+	const { routeChange } = store().app;
 
 	useEffect(() => {
 		if (routeChange === 'start') {

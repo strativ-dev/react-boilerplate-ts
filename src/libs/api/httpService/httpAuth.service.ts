@@ -1,6 +1,5 @@
 import { AuthService } from '~/libs/auth';
-import { store } from '~/store';
-import { appActions } from '~/store/actions';
+import store from '~/store';
 import { HttpService } from './http.service';
 
 export class HttpAuthService extends HttpService {
@@ -10,7 +9,7 @@ export class HttpAuthService extends HttpService {
 			// getRefreshToken: () => this.auth.getRefreshToken(),
 			// onUpdateToken: (token: string) => this.auth.setToken(token),
 			onUnauthorised: () => this.auth.removeTokens(),
-			onLoading: (e) => store.dispatch(appActions.updateRoute(e)),
+			onLoading: (e) => store().app.updateRoute(e),
 		});
 	}
 }

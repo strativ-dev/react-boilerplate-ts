@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 
 import { usersAPI } from '~/libs/api';
-import { useStoreSelector } from '~/store';
+import store from '~/store';
 
 const General = () => {
 	const { t } = useTranslation();
 	const { message } = App.useApp();
-	const { user } = useStoreSelector((state) => state.auth);
+	const { user } = store().auth;
 	const { isAllowedTo } = useAccessContext();
 
 	const { mutate: handleSubmit, isLoading } = useMutation(

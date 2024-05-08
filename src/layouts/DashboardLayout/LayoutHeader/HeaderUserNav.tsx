@@ -5,19 +5,16 @@ import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import { useMutation } from 'react-query';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { usersAPI } from '~/libs/api';
 import { authService } from '~/libs/auth';
 import { PRIVATE_ROUTES } from '~/routes/paths';
-import { useStoreSelector } from '~/store';
-import { appActions } from '~/store/actions';
+import store from '~/store';
 
 export const HeaderUserNav = () => {
 	const { t } = useTranslation();
-	const dispatch = useDispatch();
-	const { darkMode, compactMode } = useStoreSelector((state) => state.app);
+	const { darkMode, compactMode, updateDarkMode, updateCompactMode } = store().app;
 
 	const { mutate: handleLogout } = useMutation(() => usersAPI.logout(), {
 		onSuccess: () => {
@@ -30,13 +27,13 @@ export const HeaderUserNav = () => {
 	});
 
 	const toggleDarkMode = useCallback(
-		(checked: boolean) => dispatch(appActions.updateDarkMode(checked)),
-		[dispatch]
+		(checked: boolean) => updateDarkMode(checked),
+		[updateDarkMode]
 	);
 
 	const toggleCompactMode = useCallback(
-		(checked: boolean) => dispatch(appActions.updateCompactMode(checked)),
-		[dispatch]
+		(checked: boolean) => updateCompactMode(checked),
+		[updateCompactMode]
 	);
 
 	const menuItems: MenuProps = useMemo(() => {

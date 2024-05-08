@@ -1,29 +1,26 @@
 import { App } from 'antd';
 import { useCallback } from 'react';
-
-import { useStoreDispatch } from '~/store';
-import { appActions } from '~/store/actions';
+import store from '~/store';
 
 export const useMessage = (key: string) => {
-	const dispatch = useStoreDispatch();
 	const { message } = App.useApp();
 
 	const showMessage = useCallback(
 		(msg?: string) => {
-			dispatch(appActions.updateRoute('complete'));
+			store().app.updateRoute('complete');
 			if (msg) {
 				message.success({ content: msg, key });
 			}
 		},
-		[dispatch, key]
+		[key, message]
 	);
 
 	const showError = useCallback(
 		(error: string) => {
-			dispatch(appActions.updateRoute('error'));
+			store().app.updateRoute('error');
 			message.error({ content: error, key });
 		},
-		[dispatch, key]
+		[key, message]
 	);
 
 	/**
@@ -33,12 +30,12 @@ export const useMessage = (key: string) => {
 	 */
 	const APIRequest = useCallback(
 		(request: () => Promise<string | void>) => {
-			dispatch(appActions.updateRoute('start'));
+			store().app.updateRoute('start');
 			request()
 				.then((msg) => showMessage(msg as string | undefined))
 				.catch((err) => showError(err.message));
 		},
-		[dispatch, showError, showMessage]
+		[showError, showMessage]
 	);
 
 	return {

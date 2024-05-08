@@ -1,6 +1,5 @@
 import config from '~/config';
-import { store } from '~/store';
-import { appActions } from '~/store/actions';
+import store from '~/store';
 import { HttpService } from './httpService';
 
 class AuthAPI {
@@ -24,7 +23,7 @@ class AuthAPI {
 }
 
 const onLoading = (type: 'start' | 'error' | 'complete') => {
-	store.dispatch(appActions.updateRoute(type));
+	store().app.updateRoute(type);
 };
 const httpService = new HttpService(config.apiURL, { onLoading });
 export const authAPI = new AuthAPI(httpService);
