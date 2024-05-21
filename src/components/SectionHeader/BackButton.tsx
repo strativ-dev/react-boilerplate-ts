@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import ArrowLeft from '~/assets/images/icons/arrow-left.svg';
+import ArrowLeft from '@/assets/images/icons/arrow-left.svg';
 import { Typography } from '../Atoms';
 
 const BackButtonWrapper = styled.div`

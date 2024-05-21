@@ -3,7 +3,7 @@ import { FC, HTMLAttributes, useCallback, useEffect, useMemo, useRef, useState }
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Brand } from '~/components/Atoms';
+import { Brand } from '@/components/Atoms';
 import { MenuItems } from './MenuItems';
 
 type LayoutSiderProps = {

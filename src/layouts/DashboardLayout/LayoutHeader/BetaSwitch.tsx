@@ -1,22 +1,22 @@
 import { Space, Typography } from 'antd';
 import { useMemo } from 'react';
 
-import { Switch } from '~/components/Atoms';
-import { useStoreDispatch, useStoreSelector } from '~/store';
-import { appActions } from '~/store/actions';
+import { Switch } from '@/components/Atoms';
+import useAppStore from '@/store/useAppStore';
+import useAuthStore from '@/store/useAuthStore';
 
 export const BetaSwitch = () => {
-	const { user } = useStoreSelector((state) => state.auth);
-	const { isBetaMode } = useStoreSelector((state) => state.app);
-	const dispatch = useStoreDispatch();
+	const user = useAuthStore((state) => state.user);
+	const isBetaMode = useAppStore((state) => state.isBetaMode);
+	const updateBetaMode = useAppStore((state) => state.updateBetaMode);
 
 	const isStrativUser = useMemo(() => {
 		const isStarativUser = user?.email?.includes('@strativ.se');
 		if (!isStarativUser && isBetaMode) {
-			dispatch(appActions.updateBetaMode(false));
+			updateBetaMode(false);
 		}
 		return isStarativUser;
-	}, [user?.email, isBetaMode, dispatch]);
+	}, [user?.email, isBetaMode]);
 
 	if (!isStrativUser) return null;
 
@@ -27,7 +27,7 @@ export const BetaSwitch = () => {
 				checkedChildren='On'
 				unCheckedChildren='Off'
 				checked={isBetaMode}
-				onChange={(checked) => dispatch(appActions.updateBetaMode(checked))}
+				onChange={(checked) => updateBetaMode(checked)}
 			/>
 		</Space>
 	);

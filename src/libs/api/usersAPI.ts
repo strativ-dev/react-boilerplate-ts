@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import config from '~/config';
+import config from '@/config';
 import { authService } from '../auth';
 import { Common } from './common';
 import { HttpAuthService } from './httpService';
@@ -10,7 +10,7 @@ class UsersAPI extends Common {
 	}
 
 	profile() {
-		return this.http.get<ProfileResponse>('users/me/');
+		return this.http.get<ProfileResponse>('users/1');
 	}
 
 	updatePassword(current_password: string, new_password: string) {

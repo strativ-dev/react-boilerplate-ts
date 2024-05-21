@@ -2,18 +2,18 @@ import nProgress from 'nprogress';
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Spin } from '~/components/Atoms';
-import { useStoreSelector } from '~/store';
+import { Spin } from '@/components/Atoms';
+import useAppStore from '@/store/useAppStore';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './paths';
 import { privateRoutes } from './privateRoutes';
 import { publicRoutes } from './publicRoutes';
 
-const SignInLayout = lazy(() => import('~/layouts/SignInLayout'));
-const DashboardLayout = lazy(() => import('~/layouts/DashboardLayout'));
-const NotFound = lazy(() => import('~/features/not-found'));
+const SignInLayout = lazy(() => import('@/layouts/SignInLayout'));
+const DashboardLayout = lazy(() => import('@/layouts/DashboardLayout'));
+const NotFound = lazy(() => import('@/features/not-found'));
 
 export const BaseRoutes = () => {
-	const { routeChange } = useStoreSelector((state) => state.app);
+	const routeChange = useAppStore((state) => state.routeChange);
 
 	useEffect(() => {
 		if (routeChange === 'start') {
@@ -41,9 +41,9 @@ export const BaseRoutes = () => {
 					))}
 				</Route>
 				<Route path='dashboard' element={<DashboardLayout />}>
-					{privateRoutes.map(({ path, Component }, i) => (
+					{privateRoutes.map(({ path, Component }, index) => (
 						<Route
-							key={i}
+							key={index}
 							path={path}
 							index={path === PRIVATE_ROUTES.DASHBOARD}
 							element={

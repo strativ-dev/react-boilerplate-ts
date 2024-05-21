@@ -3,9 +3,10 @@ import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import React, { FC, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { useShallow } from 'zustand/react/shallow';
 
-import useConfigurations from '~/components/Providers/useConfigurations';
-import { useStoreSelector } from '~/store';
+import useConfigurations from '@/components/Providers/useConfigurations';
+import useAppStore from '@/store/useAppStore';
 
 interface Props {
 	loading: React.ReactNode;
@@ -14,7 +15,8 @@ interface Props {
 
 const ConfigurationsProvider: FC<Props> = ({ loading, children }: Props) => {
 	const { data, isLoading } = useConfigurations();
-	const { primaryColor, darkMode, compactMode } = useStoreSelector((state) => state.app);
+	const { primaryColor, darkMode, compactMode } = useAppStore(useShallow((state) => state));
+
 	const algorithm = [darkMode ? theme.darkAlgorithm : theme.defaultAlgorithm];
 
 	const themeConfig: ThemeConfig = {

@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from '~/components/Atoms/Button';
+import { Button } from '@/components/Atoms/Button';
 
 type Filter =
 	| {
@@ -93,7 +93,7 @@ const TableMenuOptions = ({
 				value: item.searchKey,
 				label: item.searchLabel ?? item.searchKey,
 				type: item.type,
-		  }))
+			}))
 		: [];
 
 	const handleClick = useCallback(

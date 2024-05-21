@@ -2,7 +2,7 @@ import { App, Button, Col, Form, Input, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 
-import { usersAPI } from '~/libs/api';
+import { usersAPI } from '@/libs/api';
 
 type FormValues = {
 	current_password: string;

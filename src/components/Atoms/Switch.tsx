@@ -8,7 +8,7 @@ export type SwitchProps = AntSwitchProps & {
 	custom?: boolean;
 };
 
-const CustomSwitch = styled(AntSwitch)`
+const CustomSwitch = styled(AntSwitch)<SwitchProps>`
 	&-inner {
 		font-size: 0.875rem;
 		font-weight: 500;

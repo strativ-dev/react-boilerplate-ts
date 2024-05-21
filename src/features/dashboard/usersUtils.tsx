@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
 
-import { StatusColumn } from '~/components/StatusColumn';
+import { StatusColumn } from '@/components/StatusColumn';
 
 const usersUtils = () => {
 	const { t } = useTranslation();

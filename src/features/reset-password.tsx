@@ -4,8 +4,8 @@ import { useMutation } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Brand, Typography } from '~/components/Atoms';
-import { authAPI } from '~/libs/api';
+import { Brand, Typography } from '@/components/Atoms';
+import { authAPI } from '@/libs/api';
 
 const ResetPassword = () => {
 	const { t } = useTranslation();

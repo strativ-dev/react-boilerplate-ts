@@ -1,4 +1,4 @@
-import { useFormatCurrency } from '~/hooks';
+import { useFormatCurrency } from '@/hooks';
 
 type DataTableColumnCurrencyProps = {
 	amount?: number;

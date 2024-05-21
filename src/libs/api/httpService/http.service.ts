@@ -1,7 +1,10 @@
-import { ErrorException } from '~/utils';
+import { ErrorException } from '@/utils';
 
 export class HttpService {
-	constructor(private baseURL: string, private config: HttpServiceConfig = {}) {}
+	constructor(
+		private baseURL: string,
+		private config: HttpServiceConfig = {}
+	) {}
 
 	get<T>(url: string, options?: RequestOptions) {
 		return this.request<T>('GET', url, null, options);

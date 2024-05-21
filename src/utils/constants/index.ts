@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import config from '~/config';
+import config from '@/config';
 
 export const LANGUAGE_OPTIONS = {
 	en: 'EN',

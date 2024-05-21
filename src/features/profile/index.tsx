@@ -2,8 +2,8 @@ import { Card, Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import { Tabs } from '~/components/Atoms';
-import SectionHeader from '~/components/SectionHeader';
+import { Tabs } from '@/components/Atoms';
+import SectionHeader from '@/components/SectionHeader';
 import profileUtls from './utils';
 
 const Profile = () => {

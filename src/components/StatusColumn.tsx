@@ -3,9 +3,9 @@ import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 
-import { Switch } from '~/components/Atoms';
-import { translationKeys } from '~/config/translate/i18next';
-import { commonAPI } from '~/libs/api';
+import { Switch } from '@/components/Atoms';
+import { translationKeys } from '@/config/translate/i18next';
+import { commonAPI } from '@/libs/api';
 
 type Props = {
 	status: boolean;
