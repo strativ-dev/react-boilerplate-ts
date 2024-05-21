@@ -1,4 +1,4 @@
-import config from '~/config';
+import config from '@/config';
 
 /**
  * You can use this function to add or update URL

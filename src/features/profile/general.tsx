@@ -3,13 +3,13 @@ import { useAccessContext } from 'react-access-boundary';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 
-import { usersAPI } from '~/libs/api';
-import { useStoreSelector } from '~/store';
+import { usersAPI } from '@/libs/api';
+import useAuthStore from '@/store/useAuthStore';
 
 const General = () => {
 	const { t } = useTranslation();
 	const { message } = App.useApp();
-	const { user } = useStoreSelector((state) => state.auth);
+	const user = useAuthStore((state) => state.user);
 	const { isAllowedTo } = useAccessContext();
 
 	const { mutate: handleSubmit, isLoading } = useMutation(
@@ -34,7 +34,9 @@ const General = () => {
 		}
 	);
 
-	if (!user) return null;
+	if (!user) {
+		return null;
+	}
 
 	return (
 		<Form layout='vertical' size='large' initialValues={user} onFinish={handleSubmit}>

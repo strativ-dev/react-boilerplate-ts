@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import config from '~/config';
+import config from '@/config';
 import { authService } from '../auth';
 import { HttpAuthService } from './httpService';
 

@@ -8,8 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { createGlobalStyle, useTheme } from 'styled-components';
 
-import { ReactComponent as FilterIcon } from '~/assets/images/icons/funnelIcon.svg';
-import { selectFilterBy } from '~/utils';
+import { ReactComponent as FilterIcon } from '@/assets/images/icons/funnelIcon.svg';
+import { selectFilterBy } from '@/utils';
 
 interface TableFilterProps {
 	width?: number;
@@ -57,10 +57,10 @@ export const generateColumnFilter = (orderBy: string, sortOrder: string | null) 
 		sortOrder: !sortOrder
 			? null
 			: sortOrder.includes(orderBy)
-			? sortOrder.includes('-')
-				? 'descend'
-				: 'ascend'
-			: null,
+				? sortOrder.includes('-')
+					? 'descend'
+					: 'ascend'
+				: null,
 	} as ColumnType<any>;
 };
 
@@ -105,7 +105,7 @@ const TableFilter: FC<
 			: [
 					searchParams.get(searchKey?.[0]) || undefined,
 					searchParams.get(searchKey?.[1]) || undefined,
-			  ]
+				]
 	);
 
 	const handleApplyFilter = () => {

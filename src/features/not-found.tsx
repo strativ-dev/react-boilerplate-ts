@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { routeNavigate } from '~/routes/utils';
+import { routeNavigate } from '@/routes/utils';
 
 const NotFound: FC = () => {
 	const navigate = useNavigate();

@@ -3,10 +3,10 @@ import { useAccessContext } from 'react-access-boundary';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 
-import { DataTable } from '~/components/Atoms';
-import useMenuOptions from '~/hooks/useMenuOptions';
-import usePageParams from '~/hooks/usePageParams';
-import { usersAPI } from '~/libs/api';
+import { DataTable } from '@/components/Atoms';
+import useMenuOptions from '@/hooks/useMenuOptions';
+import usePageParams from '@/hooks/usePageParams';
+import { usersAPI } from '@/libs/api';
 import usersUtils from '../usersUtils';
 
 const { Header, HeaderTop, Title, Link: DataTableLink, MenuOptions, Body } = DataTable;

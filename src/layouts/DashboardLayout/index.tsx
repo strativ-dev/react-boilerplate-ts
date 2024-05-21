@@ -2,7 +2,7 @@ import { Layout } from 'antd';
 import { FC, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { withAuth } from '~/components/Hoc';
+import { withAuth } from '@/components/Hoc';
 import { LayoutHeader } from './LayoutHeader';
 import { LayoutSider } from './LayoutSider';
 

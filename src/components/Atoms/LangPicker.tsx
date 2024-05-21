@@ -3,8 +3,8 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
-import { useLang } from '~/hooks';
-import { LANGUAGE_OPTIONS } from '~/utils/constants';
+import { useLang } from '@/hooks';
+import { LANGUAGE_OPTIONS } from '@/utils/constants';
 
 export const LangPicker: FC = () => {
 	const { t } = useTranslation();
