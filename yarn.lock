@@ -4507,10 +4507,10 @@ rc-virtual-list@^3.5.1:
     rc-resize-observer "^1.0.0"
     rc-util "^5.15.0"
 
-react-access-boundary@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/react-access-boundary/-/react-access-boundary-2.1.4.tgz#f19332510bc68a30be28a1a46ae00603fab429d5"
-  integrity sha512-oTRi0G5sHSwDodYg1whi7u06KF+6Ra/hjf4I2K61ZbZIM062rsDicxzW71OLG+3qj8tpH6DYHQPTsUTPaN6n6w==
+react-access-boundary-v2@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-access-boundary-v2/-/react-access-boundary-v2-1.1.1.tgz#5821e75dad44b5ba9016b37c07b78de8d981ae9a"
+  integrity sha512-cGZ6HXn4JGp0evIPgay9VJs5qfA2bZhOIn6UMcq0jm7tBkz0wgZitMiVv+MSMeIcstJTWn6sxe5Ux5GRaSmpNQ==
 
 react-base16-styling@^0.6.0:
   version "0.6.0"

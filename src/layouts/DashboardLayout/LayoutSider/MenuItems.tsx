@@ -1,7 +1,6 @@
 import { PieChartOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { useCallback } from 'react';
-import { useAccessContext } from 'react-access-boundary';
+import { useAccessContext } from 'react-access-boundary-v2';
 import { useTranslation } from 'react-i18next';
 
 import { translationKeys } from '@/config/translate/i18next';
@@ -38,25 +37,11 @@ const ITEMS: (ITEM | ITEM_GROUP)[] = [
 export const MenuItems = () => {
 	const { t } = useTranslation();
 	const { isAllowedTo } = useAccessContext();
-	const isAllowedPermission = useCallback(
-		(permission: string | string[]) => {
-			if (Array.isArray(permission)) {
-				for (const item of permission) {
-					return isAllowedTo(item);
-				}
-
-				return false;
-			}
-
-			return isAllowedTo(permission);
-		},
-		[isAllowedTo]
-	);
 
 	const transform = (items: typeof ITEMS) =>
 		items
 			?.map((item) =>
-				!item?.permission || isAllowedPermission(item?.permission)
+				!item?.permission || isAllowedTo(item?.permission)
 					? {
 							...item,
 							label: t(item?.label),
@@ -65,7 +50,7 @@ export const MenuItems = () => {
 										children: item?.children
 											? item.children
 													?.map((child) =>
-														!child.permission || isAllowedPermission(child?.permission)
+														!child.permission || isAllowedTo(child?.permission)
 															? { ...child, label: t(child.label) }
 															: undefined
 													)

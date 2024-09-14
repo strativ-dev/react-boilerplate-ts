@@ -1,5 +1,5 @@
 import { App, Button, Col, Form, Input, Row } from 'antd';
-import { useAccessContext } from 'react-access-boundary';
+import { useAccessContext } from 'react-access-boundary-v2';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
 

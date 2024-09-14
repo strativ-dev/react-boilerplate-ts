@@ -1,5 +1,5 @@
 import { ColumnsType } from 'antd/lib/table';
-import { useAccessContext } from 'react-access-boundary';
+import { useAccessContext } from 'react-access-boundary-v2';
 import { useTranslation } from 'react-i18next';
 import { useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
