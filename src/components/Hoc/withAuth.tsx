@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { AccessProvider } from 'react-access-boundary';
+import { AccessProvider } from 'react-access-boundary-v2';
 import { useQuery } from 'react-query';
 import { Navigate, useLocation } from 'react-router-dom';
 

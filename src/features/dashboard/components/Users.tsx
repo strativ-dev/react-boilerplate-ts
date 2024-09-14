@@ -1,5 +1,5 @@
 import { Empty } from 'antd';
-import { useAccessContext } from 'react-access-boundary';
+import { useAccessContext } from 'react-access-boundary-v2';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 
