@@ -14,7 +14,7 @@ export const useLoginForm = () => {
     try {
       setLoading(true);
       await login.mutateAsync(values);
-      message.success("Login successful!");
+      message.success("Logged in successfully!");
       navigate("/dashboard");
     } catch (error: unknown) {
       message.error(

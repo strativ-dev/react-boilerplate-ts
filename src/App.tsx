@@ -1,18 +1,18 @@
 import { App as AntApp } from "antd";
 
 import { BaseRoutes } from "@/routes";
-import GlobalStyles from "@/app/globals";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import GlobalStyles from "@/assets/theme/globals";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-      },
-    },
-  });
-
   return (
     <QueryClientProvider client={queryClient}>
       <AntApp>

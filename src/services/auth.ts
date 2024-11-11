@@ -1,26 +1,12 @@
-import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
 
 import { useAuthStore } from "@/stores/useAuthStore";
-import { useMutation } from "@tanstack/react-query";
+import { axiosInstance } from "./api";
 
 interface LoginCredentials {
   email: string;
   password: string;
 }
-
-// Axios instance with interceptors
-export const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_API_URL,
-});
-
-// Add token to requests
-axiosInstance.interceptors.request.use((config) => {
-  const token = useAuthStore.getState().token;
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
 
 export const authService = {
   // Login mutation

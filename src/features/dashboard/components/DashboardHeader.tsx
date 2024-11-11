@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Typography } from "antd";
 
 import { HeaderRow } from "@/features/dashboard/styles/dashboard-styles";
