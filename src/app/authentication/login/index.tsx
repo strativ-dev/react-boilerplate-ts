@@ -1,17 +1,34 @@
+import { useNavigate } from "react-router-dom";
+import { message } from "antd";
+
 import { LoginForm } from "@/features/authentication/components/LoginForm";
 import {
   LoginWrapper,
   LoginCard,
 } from "@/features/authentication/styles/login-styles";
-import { useLoginForm } from "@/features/authentication/hooks/useLoginForm";
+import { LoginFormValues } from "@/features/authentication/types/login";
+import { useLogin } from "@/services/auth";
 
 const Login = () => {
-  const { loading, handleLogin } = useLoginForm();
+  const navigate = useNavigate();
+  const { mutate, isPending } = useLogin();
+
+  const handleLogin = (values: LoginFormValues) => {
+    mutate(values, {
+      onSuccess: () => {
+        message.success("Logged in successfully!");
+        navigate("/dashboard");
+      },
+      onError: (error: Error) => {
+        message.error(error.message || "Invalid credentials");
+      },
+    });
+  };
 
   return (
     <LoginWrapper>
       <LoginCard>
-        <LoginForm loading={loading} onFinish={handleLogin} />
+        <LoginForm loading={isPending} onFinish={handleLogin} />
       </LoginCard>
     </LoginWrapper>
   );
