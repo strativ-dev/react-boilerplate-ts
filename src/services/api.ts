@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-import useAuthStore from "@/stores/useAuthStore";
+import useAuthStore from '@/stores/useAuthStore';
 
 // Axios instance with interceptors
 export const axiosInstance = axios.create({

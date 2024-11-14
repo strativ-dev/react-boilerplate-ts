@@ -1,8 +1,8 @@
-import { App as AntApp } from "antd";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { App as AntApp } from 'antd';
 
-import { BaseRoutes } from "@/routes";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import GlobalStyles from "@/assets/theme/globals";
+import GlobalStyles from '@/assets/theme/globals';
+import { BaseRoutes } from '@/routes';
 
 const queryClient = new QueryClient({
   defaultOptions: {

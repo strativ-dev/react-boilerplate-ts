@@ -1,6 +1,7 @@
-import { useMutation } from "@tanstack/react-query";
-import { useAuthStore } from "@/stores/useAuthStore";
-import { axiosInstance } from "./api";
+import { useMutation } from '@tanstack/react-query';
+
+import { axiosInstance } from './api';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 interface LoginCredentials {
   email: string;
@@ -10,7 +11,7 @@ interface LoginCredentials {
 export const useLogin = () => {
   return useMutation({
     mutationFn: async (credentials: LoginCredentials) => {
-      const response = await axiosInstance.post("auth/login", credentials);
+      const response = await axiosInstance.post('auth/login', credentials);
       const { token, user, permissions } = response.data;
 
       // Update auth store
@@ -28,9 +29,9 @@ export const useLogout = () => {
     // Clear local state immediately
     useAuthStore.getState().clear();
     // Optionally notify backend (fire-and-forget)
-    axiosInstance.post("/logout").catch(() => {
+    axiosInstance.post('/logout').catch(() => {
       // Ignore errors since we're already logged out locally
-      console.debug("Backend logout notification failed");
+      console.debug('Backend logout notification failed');
     });
   };
 };

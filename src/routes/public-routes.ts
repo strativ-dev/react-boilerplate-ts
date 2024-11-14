@@ -1,10 +1,10 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
-import { PUBLIC_ROUTES } from "./paths";
+import { PUBLIC_ROUTES } from './paths';
 
 export const publicRoutes = [
   {
     path: PUBLIC_ROUTES.LOGIN,
-    Component: lazy(() => import("@/app/authentication/login")),
+    Component: lazy(() => import('@/app/authentication/login')),
   },
 ];

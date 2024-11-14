@@ -1,6 +1,6 @@
-import { Button, Typography } from "antd";
+import { Button, Typography } from 'antd';
 
-import { HeaderRow } from "@/features/dashboard/styles/dashboard-styles";
+import { HeaderRow } from '@/features/dashboard/styles/dashboard-styles';
 
 const { Title } = Typography;
 

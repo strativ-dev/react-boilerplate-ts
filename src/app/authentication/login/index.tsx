@@ -1,13 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import { message } from "antd";
+import { message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-import { LoginForm } from "@/features/authentication/components/LoginForm";
+import { LoginForm } from '@/features/authentication/components/LoginForm';
 import {
   LoginWrapper,
   LoginCard,
-} from "@/features/authentication/styles/login-styles";
-import { LoginFormValues } from "@/features/authentication/types/login";
-import { useLogin } from "@/services/auth";
+} from '@/features/authentication/styles/login-styles';
+import { LoginFormValues } from '@/features/authentication/types/login';
+import { useLogin } from '@/services/auth';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,11 +16,11 @@ const Login = () => {
   const handleLogin = (values: LoginFormValues) => {
     mutate(values, {
       onSuccess: () => {
-        message.success("Logged in successfully!");
-        navigate("/dashboard");
+        message.success('Logged in successfully!');
+        navigate('/dashboard');
       },
       onError: (error: Error) => {
-        message.error(error.message || "Invalid credentials");
+        message.error(error.message || 'Invalid credentials');
       },
     });
   };

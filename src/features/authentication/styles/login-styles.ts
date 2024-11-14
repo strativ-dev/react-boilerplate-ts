@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Card } from "antd";
+import { Card } from 'antd';
+import styled from 'styled-components';
 
 export const LoginWrapper = styled.div`
   display: flex;

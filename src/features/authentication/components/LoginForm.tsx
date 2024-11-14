@@ -1,8 +1,8 @@
-import { Form, Input, Button } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Form, Input } from 'antd';
 
-import { FormTitle } from "@/features/authentication/styles/login-styles";
-import { LoginFormValues } from "@/features/authentication/types/login";
+import { FormTitle } from '@/features/authentication/styles/login-styles';
+import { LoginFormValues } from '@/features/authentication/types/login';
 
 interface LoginFormProps {
   loading: boolean;
@@ -22,8 +22,8 @@ export const LoginForm = ({ loading, onFinish }: LoginFormProps) => {
         <Form.Item
           name="email"
           rules={[
-            { required: true, message: "Please input your email!" },
-            { type: "email", message: "Please enter a valid email!" },
+            { required: true, message: 'Please input your email!' },
+            { type: 'email', message: 'Please enter a valid email!' },
           ]}
         >
           <Input prefix={<UserOutlined />} placeholder="Email" />
@@ -31,7 +31,7 @@ export const LoginForm = ({ loading, onFinish }: LoginFormProps) => {
 
         <Form.Item
           name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[{ required: true, message: 'Please input your password!' }]}
         >
           <Input.Password prefix={<LockOutlined />} placeholder="Password" />
         </Form.Item>

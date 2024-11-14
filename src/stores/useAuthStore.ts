@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { create } from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 
 interface ProfileResponse {
   id: number;
@@ -16,10 +16,10 @@ interface ProfileResponse {
 interface AuthState {
   user: ProfileResponse | null;
   permissions: string[];
-  setUser: (user: AuthState["user"]) => void;
-  setPermissions: (permissions: AuthState["permissions"]) => void;
+  setUser: (user: AuthState['user']) => void;
+  setPermissions: (permissions: AuthState['permissions']) => void;
   token: string | null;
-  setToken: (token: AuthState["token"]) => void;
+  setToken: (token: AuthState['token']) => void;
   clear: () => void;
 }
 
@@ -29,16 +29,16 @@ export const useAuthStore = create<AuthState>()(
       (set) => ({
         user: null,
         permissions: [],
-        setUser: (user: AuthState["user"]) => set({ user }),
-        setPermissions: (permissions: AuthState["permissions"]) =>
+        setUser: (user: AuthState['user']) => set({ user }),
+        setPermissions: (permissions: AuthState['permissions']) =>
           set({ permissions }),
         token: null,
-        setToken: (token: AuthState["token"]) => set({ token }),
+        setToken: (token: AuthState['token']) => set({ token }),
         clear: () => set({ user: null, permissions: [], token: null }),
       }),
-      { name: "authStore" }
+      { name: 'authStore' }
     ),
-    { store: "AuthStore", name: "Auth Store" }
+    { store: 'AuthStore', name: 'Auth Store' }
   )
 );
 

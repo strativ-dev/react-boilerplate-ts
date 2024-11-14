@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { publicRoutes } from "./public-routes";
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./paths";
-import { privateRoutes } from "./private-routes";
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './paths';
+import { privateRoutes } from './private-routes';
+import { publicRoutes } from './public-routes';
 
 export const BaseRoutes = () => {
   return (

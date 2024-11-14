@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Card, Row } from "antd";
+import { Card, Row } from 'antd';
+import styled from 'styled-components';
 
 export const DashboardWrapper = styled.div`
   padding: 24px;

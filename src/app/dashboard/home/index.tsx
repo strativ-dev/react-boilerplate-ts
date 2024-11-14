@@ -1,10 +1,10 @@
-import { Row, Col } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Row, Col } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-import { DashboardHeader } from "@/features/dashboard/components/DashboardHeader";
-import { StatCard } from "@/features/dashboard/components/StatCard";
-import { DashboardWrapper } from "@/features/dashboard/styles/dashboard-styles";
-import { useLogout } from "@/services/auth";
+import { DashboardHeader } from '@/features/dashboard/components/DashboardHeader';
+import { StatCard } from '@/features/dashboard/components/StatCard';
+import { DashboardWrapper } from '@/features/dashboard/styles/dashboard-styles';
+import { useLogout } from '@/services/auth';
 
 const DashboardHome = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const DashboardHome = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/");
+    navigate('/');
   };
 
   // This would typically come from an API call using something like this with useQuery
