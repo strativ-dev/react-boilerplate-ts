@@ -1,0 +1,16 @@
+{
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "printWidth": 80,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^(react|next|@?\\w)",
+    "<THIRD_PARTY_MODULES>",
+    "^@/components/(.*)$",
+    "\\.(svg|png|jpg|jpeg|gif)$",
+    "\\.css$"
+  ],
+  "importOrderSeparation": true
+}
