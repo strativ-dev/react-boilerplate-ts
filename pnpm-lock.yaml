@@ -26,6 +26,9 @@ importers:
       react:
         specifier: ^18.3.1
         version: 18.3.1
+      react-access-boundary-v2:
+        specifier: ^1.1.1
+        version: 1.1.1
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -1681,6 +1684,10 @@ packages:
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
+
+  react-access-boundary-v2@1.1.1:
+    resolution: {integrity: sha512-cGZ6HXn4JGp0evIPgay9VJs5qfA2bZhOIn6UMcq0jm7tBkz0wgZitMiVv+MSMeIcstJTWn6sxe5Ux5GRaSmpNQ==}
+    engines: {node: '>=14', npm: '>=8'}
 
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
@@ -3725,6 +3732,8 @@ snapshots:
       rc-util: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  react-access-boundary-v2@1.1.1: {}
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:
