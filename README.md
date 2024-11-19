@@ -34,11 +34,11 @@ Our boilerplate is built with:
 
 - **React Router (v6.27.0)**: Declarative routing for React applications
 
-- **Ant Design (v5.17.2)**: Comprehensive React UI library with a wide range of pre-built components
+- **Ant Design (v5.22.1)**: Comprehensive React UI library with a wide range of pre-built components
 
 - **Styled Components (v6.1.13)**: CSS-in-JS solution for component-level styling
 
-- **Vitest (v3.1.1)**: Testing framework for JavaScript and TypeScript
+- **Vitest (v2.1.5)**: Testing framework for JavaScript and TypeScript
 
 ## Project Structure
 
@@ -308,6 +308,82 @@ function MyComponent() {
 ### Store and Hook Naming
 
 - Prefix with `use` (e.g., `useAuthStore`, `useUserProfile`)
+
+## Testing
+
+We use Vitest with React Testing Library for our testing framework.
+
+### Basic Test Structure
+
+```typescript
+import { render, screen } from '@testing-library/react';
+import { describe, it } from 'vitest';
+import MyComponent from './MyComponent';
+
+describe('MyComponent', () => {
+  it('renders the component', () => {
+    render(<MyComponent />);
+
+    screen.debug();
+  });
+});
+```
+
+### Test Commands
+
+- `pnpm test`: Run all tests
+- `pnpm test:ui`: Run tests with UI
+- `pnpm test:watch`: Run tests in watch mode
+
+### Common Testing Patterns
+
+1. **Component Rendering**
+
+```typescript
+import { render, screen } from '@testing-library/react';
+import Button from './Button';
+
+describe('Button', () => {
+  it('renders with correct text', () => {
+    render(<Button>Click me</Button>);
+
+    expect(screen.getByText('Click me')).toBeInTheDocument();
+  });
+});
+```
+
+2. **User Interactions**
+
+```typescript
+import { render, screen, fireEvent } from '@testing-library/react';
+import Counter from './Counter';
+
+describe('Counter', () => {
+  it('increments value on click', () => {
+    render(<Counter />);
+
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(screen.getByText('Count: 1')).toBeInTheDocument();
+  });
+});
+```
+
+3. **Async Operations**
+
+```typescript
+import { render, screen } from '@testing-library/react';
+import UserProfile from './UserProfile';
+
+describe('UserProfile', () => {
+  it('loads user data', async () => {
+    render(<UserProfile />);
+
+    expect(await screen.findByText('Loading...')).toBeInTheDocument();
+    expect(await screen.findByText('User Name')).toBeInTheDocument();
+  });
+});
+```
 
 ## Contributing
 
