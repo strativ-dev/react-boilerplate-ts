@@ -10,5 +10,9 @@ export const sv = {
         please_input_your_password: 'Vänligen ange ditt lösenord',
       },
     },
+    common: {
+      something_went_wrong: 'Något gick fel',
+      try_again: 'Försök igen',
+    },
   },
 };

@@ -10,5 +10,9 @@ export const en = {
         please_input_your_password: 'Please input your password',
       },
     },
+    common: {
+      something_went_wrong: 'Something went wrong',
+      try_again: 'Try again',
+    },
   },
 };
