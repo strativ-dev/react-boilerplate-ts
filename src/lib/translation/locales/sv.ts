@@ -1,7 +1,7 @@
 export const sv = {
   translation: {
     sidebar: {
-      dashboard: 'Dashboard',
+      dashboard: 'Instrumentpanel',
     },
     features: {
       authentication: {
@@ -11,6 +11,14 @@ export const sv = {
         password: 'Lösenord',
         please_input_your_email: 'Vänligen ange din e-post',
         please_input_your_password: 'Vänligen ange ditt lösenord',
+      },
+    },
+    pages: {
+      dashboard: {
+        users: 'Användare',
+        revenue: 'Inkomst',
+        orders: 'Ordrar',
+        welcome: 'Välkommen, {{name}}',
       },
     },
     common: {

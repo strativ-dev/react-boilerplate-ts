@@ -13,6 +13,14 @@ export const en = {
         please_input_your_password: 'Please input your password',
       },
     },
+    pages: {
+      dashboard: {
+        users: 'Users',
+        revenue: 'Revenue',
+        orders: 'Orders',
+        welcome: 'Welcome, {{name}}',
+      },
+    },
     common: {
       something_went_wrong: 'Something went wrong',
       try_again: 'Try again',
