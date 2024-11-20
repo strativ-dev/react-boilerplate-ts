@@ -21,6 +21,7 @@ export const en = {
       back_home: 'Back Home',
       no_response_received_from_the_server:
         'No response received from the server',
+      choose_language: 'Choose Language',
     },
   },
 };

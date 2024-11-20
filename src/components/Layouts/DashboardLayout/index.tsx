@@ -8,6 +8,7 @@ import MenuItems from './MenuItems';
 import { StyledHeader } from './styles';
 import StrativLogo from '@/assets/logo.svg?react';
 
+import { LangPicker } from '@/components/Atoms/LangPicker';
 import { withAuth } from '@/components/Hoc/withAuth';
 
 const { Sider, Content } = Layout;
@@ -82,7 +83,10 @@ const DashboardLayout = withAuth(() => {
             size="large"
           />
 
-          <HeaderUserNav />
+          <Flex align="center" justify='end' gap={16}>
+            <LangPicker />
+            <HeaderUserNav />
+          </Flex>
         </StyledHeader>
         <Content
           style={{
