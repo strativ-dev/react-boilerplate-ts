@@ -3,7 +3,7 @@ export const sv = {
     sidebar: {
       dashboard: 'Dashboard',
     },
-    pages: {
+    features: {
       authentication: {
         authentication: 'Autentisering',
         log_in: 'Logga in',

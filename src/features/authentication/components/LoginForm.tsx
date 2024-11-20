@@ -17,7 +17,7 @@ type LoginFormProps = {
 
 export const LoginForm = ({ loading, onFinish }: LoginFormProps) => {
   const { t } = useTranslation('translation', {
-    keyPrefix: 'pages.authentication',
+    keyPrefix: 'features.authentication',
   });
 
   const [form] = Form.useForm<FormValues>();
