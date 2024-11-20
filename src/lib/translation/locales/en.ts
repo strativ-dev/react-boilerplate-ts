@@ -13,6 +13,9 @@ export const en = {
     common: {
       something_went_wrong: 'Something went wrong',
       try_again: 'Try again',
+      logout: 'Logout',
+      not_found_page_title: 'Sorry, the page you visited does not exist.',
+      back_home: 'Back Home',
     },
   },
 };

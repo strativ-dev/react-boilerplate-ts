@@ -1,23 +1,37 @@
 import React, { useEffect } from 'react';
 
+import { useMyProfileQuery } from '@/services/authentication';
 import useAuthStore from '@/stores/useAuthStore';
 
-interface ConfigurationsProviderProps {
+type ConfigurationsProviderProps = {
   loading: React.ReactNode;
   children: React.ReactNode;
-}
+};
 
-const ConfigurationsProvider = ({ children }: ConfigurationsProviderProps) => {
-  const setPermissions = useAuthStore((state) => state.setPermissions);
+const ConfigurationsProvider = ({
+  children,
+  loading,
+}: ConfigurationsProviderProps) => {
   const setUser = useAuthStore((state) => state.setUser);
+  const accessToken = useAuthStore((state) => state.accessToken);
+  const setPermissions = useAuthStore((state) => state.setPermissions);
+
+  const myProfileQuery = useMyProfileQuery({
+    isEnabled: !!accessToken,
+  });
 
   useEffect(() => {
-    // fetch permissions or profile info and set them
-    setPermissions([]);
-    setUser(null);
+    if (myProfileQuery.isFetched && myProfileQuery.data) {
+      setUser(myProfileQuery.data);
 
+      setPermissions([]);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [myProfileQuery.data, myProfileQuery.isFetched]);
+
+  if (myProfileQuery.isLoading) {
+    return loading;
+  }
 
   return children;
 };

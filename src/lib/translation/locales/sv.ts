@@ -13,6 +13,9 @@ export const sv = {
     common: {
       something_went_wrong: 'Något gick fel',
       try_again: 'Försök igen',
+      logout: 'Logga ut',
+      not_found_page_title: 'Tyvärr, sidan du besökte finns inte.',
+      back_home: 'Tillbaka Hem',
     },
   },
 };

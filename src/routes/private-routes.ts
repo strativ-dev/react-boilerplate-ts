@@ -8,5 +8,6 @@ export const privateRoutes = [
   {
     path: DASHBOARD,
     Component: lazy(() => import('@/app/dashboard/home')),
+    permissions: [],
   },
 ];

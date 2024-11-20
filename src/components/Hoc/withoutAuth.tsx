@@ -8,7 +8,7 @@ export const withoutAuth = <T extends object>(
   WrappedComponent: ComponentType<T>
 ) => {
   return (props: T) => {
-    const accessToken = useAuthStore((state) => state.token);
+    const accessToken = useAuthStore((state) => state.accessToken);
 
     if (accessToken) {
       return <Navigate to={ROUTES.DASHBOARD} />;

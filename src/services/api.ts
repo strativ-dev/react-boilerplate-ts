@@ -2,16 +2,20 @@ import axios from 'axios';
 
 import useAuthStore from '@/stores/useAuthStore';
 
-// Axios instance with interceptors
-export const axiosInstance = axios.create({
+export const publicAxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_API_URL,
 });
 
-// Add token to requests
-axiosInstance.interceptors.request.use((config) => {
-  const token = useAuthStore.getState().token;
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+export const authenticatedAxiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_BACKEND_API_URL,
+});
+
+authenticatedAxiosInstance.interceptors.request.use((config) => {
+  const accessToken = useAuthStore.getState().accessToken;
+
+  if (accessToken) {
+    config.headers.Authorization = `Bearer ${accessToken}`;
   }
+
   return config;
 });

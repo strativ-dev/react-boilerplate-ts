@@ -11,7 +11,7 @@ export const withAuth = <T extends object>(
     const location = useLocation();
 
     const permissions = useAuthStore((state) => state.permissions);
-    const accessToken = useAuthStore((state) => state.token);
+    const accessToken = useAuthStore((state) => state.accessToken);
 
     if (!accessToken) {
       return <Navigate to="/" state={location} />;
