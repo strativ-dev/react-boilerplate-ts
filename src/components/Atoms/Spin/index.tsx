@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 type AntSpinProps = ComponentProps<typeof AntSpin>;
 
-type SpinProps = AntSpinProps & {
+export type SpinProps = AntSpinProps & {
   type?: 'window-centre' | 'content-centre';
 };
 
