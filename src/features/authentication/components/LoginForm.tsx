@@ -5,22 +5,33 @@ import { useTranslation } from 'react-i18next';
 import { FormTitle } from '@/features/authentication/styles/login-styles';
 import { LoginFormValues } from '@/features/authentication/types/login';
 
-interface LoginFormProps {
+type FormValues = {
+  email: string;
+  password: string;
+};
+
+type LoginFormProps = {
   loading: boolean;
   onFinish: (values: LoginFormValues) => void;
-}
+};
 
 export const LoginForm = ({ loading, onFinish }: LoginFormProps) => {
   const { t } = useTranslation('translation', {
     keyPrefix: 'pages.authentication',
   });
 
+  const [form] = Form.useForm<FormValues>();
+
   return (
     <>
       <FormTitle>{t('authentication')}</FormTitle>
       <Form
+        form={form}
         name="login"
-        initialValues={{ remember: true }}
+        initialValues={{
+          email: 'john@mail.com',
+          password: 'changeme',
+        }}
         onFinish={onFinish}
         size="large"
       >
