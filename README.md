@@ -174,6 +174,9 @@ Manages global state using Zustand.
 2. Run `pnpm install` to install dependencies
 3. Copy `env.example` to `.env` and configure your environment variables
 4. Run `pnpm dev` to start the development server
+5. To login, use the following credentials:
+   - Email: `john@mail.com`
+   - Password: `changeme`
 
 ## Development Workflow
 
