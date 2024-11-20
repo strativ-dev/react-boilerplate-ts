@@ -1,5 +1,8 @@
 export const sv = {
   translation: {
+    sidebar: {
+      dashboard: 'Dashboard',
+    },
     pages: {
       authentication: {
         authentication: 'Autentisering',

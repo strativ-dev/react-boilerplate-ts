@@ -1,5 +1,8 @@
 export const en = {
   translation: {
+    sidebar: {
+      dashboard: 'Dashboard',
+    },
     pages: {
       authentication: {
         authentication: 'Authentication',

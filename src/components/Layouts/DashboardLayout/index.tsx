@@ -1,15 +1,10 @@
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import { HeaderUserNav } from './HeaderUserNav';
+import MenuItems from './MenuItems';
 import { StyledHeader } from './styles';
 
 import { withAuth } from '@/components/Hoc/withAuth';
@@ -17,10 +12,44 @@ import { withAuth } from '@/components/Hoc/withAuth';
 const { Sider, Content } = Layout;
 
 const DashboardLayout = withAuth(() => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [collapsed, setCollapsed] = useState(false);
+  const [openKeys, setOpenKeys] = useState<string[]>([]);
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const selectedKeys = useMemo(() => {
+    const paths = location.pathname.split('/');
+    return paths?.length > 1 ? paths?.filter(Boolean) : paths;
+  }, [location.pathname]);
+
+  const getOpenedKey = useCallback(() => {
+    const paths = location.pathname.split('/');
+
+    if (paths.length === 1) {
+      return paths.shift();
+    }
+
+    return paths?.filter(Boolean).shift();
+  }, [location.pathname]);
+
+  const handleMenuClick = ({ keyPath }: { keyPath: string[] }) => {
+    const updatedKeyPath = keyPath?.reverse().join('/');
+
+    return navigate(updatedKeyPath);
+  };
+
+  const handleOpenChange = (keys: string[]) => {
+    setOpenKeys(keys);
+  };
+
+  useEffect(() => {
+    setOpenKeys([getOpenedKey() ?? '']);
+  }, [getOpenedKey]);
 
   return (
     <Layout>
@@ -33,24 +62,11 @@ const DashboardLayout = withAuth(() => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'Dashboard',
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
-            },
-          ]}
+          selectedKeys={selectedKeys}
+          openKeys={openKeys}
+          onClick={handleMenuClick}
+          onOpenChange={handleOpenChange}
+          items={MenuItems()}
         />
       </Sider>
       <Layout>
@@ -59,11 +75,7 @@ const DashboardLayout = withAuth(() => {
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '16px',
-              width: 64,
-              height: 64,
-            }}
+            size="large"
           />
 
           <HeaderUserNav />

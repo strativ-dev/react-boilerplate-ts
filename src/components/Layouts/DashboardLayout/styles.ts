@@ -6,5 +6,5 @@ export const StyledHeader = styled(Layout.Header)`
   justify-content: space-between;
   gap: 16px;
   align-items: center;
-  padding: 0 24px 0 0;
+  padding: 0 16px;
 `;
