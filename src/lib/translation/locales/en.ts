@@ -19,6 +19,8 @@ export const en = {
       logout: 'Logout',
       not_found_page_title: 'Sorry, the page you visited does not exist.',
       back_home: 'Back Home',
+      no_response_received_from_the_server:
+        'No response received from the server',
     },
   },
 };

@@ -20,7 +20,7 @@ type UseLoginMutationResponse = {
 
 const loginMutation = (payload: UseLoginMutationPayload) => {
   return publicAxiosInstance.post<UseLoginMutationResponse>(
-    endpoints.login,
+    endpoints.LOGIN,
     payload
   );
 };
@@ -46,7 +46,7 @@ export const useLoginMutation = () => {
 };
 
 const myProfileQuery = () => {
-  return authenticatedAxiosInstance.get(endpoints.myProfile);
+  return authenticatedAxiosInstance.get(endpoints.MY_PROFILE);
 };
 
 export const useMyProfileQuery = ({ isEnabled }: { isEnabled: boolean }) => {

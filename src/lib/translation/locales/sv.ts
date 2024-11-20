@@ -19,6 +19,7 @@ export const sv = {
       logout: 'Logga ut',
       not_found_page_title: 'Tyvärr, sidan du besökte finns inte.',
       back_home: 'Tillbaka Hem',
+      no_response_received_from_the_server: 'Inget svar mottaget från servern',
     },
   },
 };

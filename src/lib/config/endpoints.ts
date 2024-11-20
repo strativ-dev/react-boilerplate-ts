@@ -1,4 +1,5 @@
 export const endpoints = {
-  login: '/v1/auth/login/',
-  myProfile: '/v1/auth/profile/',
+  LOGIN: '/v1/auth/login/',
+  MY_PROFILE: '/v1/auth/profile/',
+  REFRESH_TOKEN: '/v1/auth/refresh-token/',
 };
