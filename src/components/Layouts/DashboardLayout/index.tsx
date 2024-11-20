@@ -1,11 +1,12 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Button, Flex, Layout, Menu, theme } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import { HeaderUserNav } from './HeaderUserNav';
 import MenuItems from './MenuItems';
 import { StyledHeader } from './styles';
+import StrativLogo from '@/assets/logo.svg?react';
 
 import { withAuth } from '@/components/Hoc/withAuth';
 
@@ -59,6 +60,9 @@ const DashboardLayout = withAuth(() => {
         collapsed={collapsed}
         style={{ height: '100vh' }}
       >
+        <Flex justify="center" align="center">
+          <StrativLogo height={40} width={40} />
+        </Flex>
         <Menu
           theme="dark"
           mode="inline"
