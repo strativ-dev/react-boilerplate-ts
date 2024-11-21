@@ -3,5 +3,12 @@ export const PUBLIC_ROUTES = {
 };
 
 export const PRIVATE_ROUTES = {
-  DASHBOARD: '',
+  INDEX: '',
+
+  DASHBOARD: 'dashboard',
+};
+
+export const ROUTES = {
+  LOGIN: '/',
+  DASHBOARD: '/dashboard',
 };

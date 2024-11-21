@@ -1,4 +1,4 @@
-import { Card } from 'antd';
+import { Card, Typography } from 'antd';
 import styled from 'styled-components';
 
 export const LoginWrapper = styled.div`
@@ -15,8 +15,8 @@ export const LoginCard = styled(Card)`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
-export const FormTitle = styled.h1`
+export const FormTitle = styled(Typography.Title)`
   text-align: center;
   margin-bottom: 24px;
-  color: #1890ff;
+  color: ${(props) => props.theme.colorPrimary} !important;
 `;

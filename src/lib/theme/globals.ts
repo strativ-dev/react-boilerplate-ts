@@ -2,16 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   body {
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
     margin: 0;
   }
+
   #root {
     width: 100%;
     height: 100%;
-    background-color: #f0f2f5;
+    display: block;
 
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;

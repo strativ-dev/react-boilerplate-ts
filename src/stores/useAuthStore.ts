@@ -1,27 +1,28 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-interface ProfileResponse {
-  id: number;
-  last_login: Date;
-  is_superuser: boolean;
-  created_by?: string;
-  updated_by?: string;
-  first_name: string;
-  last_name: string;
+type ProfileResponse = {
+  avatar: string;
   email: string;
-  user_permissions: string[];
-}
+  id: number;
+  name: string;
+  password: string;
+  role: string;
+  creationAt: string;
+  updatedAt: string;
+};
 
-interface AuthState {
+type AuthState = {
   user: ProfileResponse | null;
   permissions: string[];
   setUser: (user: AuthState['user']) => void;
   setPermissions: (permissions: AuthState['permissions']) => void;
-  token: string | null;
-  setToken: (token: AuthState['token']) => void;
+  accessToken: string | null;
+  refreshToken: string | null;
+  setAccessToken: (accessToken: AuthState['accessToken']) => void;
+  setRefreshToken: (refreshToken: AuthState['refreshToken']) => void;
   clear: () => void;
-}
+};
 
 export const useAuthStore = create<AuthState>()(
   devtools(
@@ -32,9 +33,13 @@ export const useAuthStore = create<AuthState>()(
         setUser: (user: AuthState['user']) => set({ user }),
         setPermissions: (permissions: AuthState['permissions']) =>
           set({ permissions }),
-        token: null,
-        setToken: (token: AuthState['token']) => set({ token }),
-        clear: () => set({ user: null, permissions: [], token: null }),
+        accessToken: null,
+        refreshToken: null,
+        setAccessToken: (accessToken: AuthState['accessToken']) =>
+          set({ accessToken }),
+        setRefreshToken: (refreshToken: AuthState['refreshToken']) =>
+          set({ refreshToken }),
+        clear: () => set({ user: null, permissions: [], accessToken: null }),
       }),
       { name: 'authStore' }
     ),
