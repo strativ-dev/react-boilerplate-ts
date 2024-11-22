@@ -40,6 +40,8 @@ Our boilerplate is built with:
 
 - **Vitest (v2.1.5)**: Testing framework for JavaScript and TypeScript
 
+- **i18next (v23.16.5)**: Internationalization framework
+
 ## Project Structure
 
 ```
@@ -48,12 +50,24 @@ src/
 │   ├── authentication/
 │   └── dashboard/
 ├── assets/             # Static assets and global theme
+├── components/         # Shared components
+│   ├── Atoms/          # Basic building blocks
+│   ├── ErrorBoundary/  # Error handling
+│   ├── Hoc/            # Higher-order components
+│   ├── Layouts/        # Layout components
+│   └── Providers/      # Context providers
 ├── features/           # Feature-specific modules
 │   ├── authentication/
 │   │   ├── components/
 │   │   ├── styles/
 │   │   └── types/
 │   └── dashboard/
+├── hooks/              # Custom hooks
+├── lib/                # Configuration and utilities
+│   ├── config/         # Application configuration
+│   ├── theme/          # Theme configuration
+│   ├── translation/    # i18n setup
+│   └── utils/          # Utility functions
 ├── routes/             # Routing configuration
 ├── services/           # API and authentication services
 ├── stores/             # Global state management
@@ -89,6 +103,22 @@ Stores static assets and global styling resources.
   - `theme/globals.ts`: Global theme configuration
   - `react.svg`: Application logo or icon
 
+### `src/components/`
+
+Houses shared components used across multiple features.
+
+- **Purpose**: Provide reusable UI building blocks and common functionality
+- **Structure**:
+  - `Atoms/`: Basic UI elements (buttons, inputs, typography)
+  - `ErrorBoundary/`: Error handling components
+  - `Hoc/`: Higher-order components for cross-cutting concerns
+  - `Layouts/`: Shared layout structures
+  - `Providers/`: Context providers for global state/settings
+- **Examples**:
+  - `Atoms/Button.tsx`: Reusable button component
+  - `Layouts/MainLayout.tsx`: Application shell layout
+  - `Providers/ThemeProvider.tsx`: Theme context provider
+
 ### `src/features/`
 
 Organizes feature-specific modules with a modular and scalable approach.
@@ -113,6 +143,35 @@ Organizes feature-specific modules with a modular and scalable approach.
 - **`types/`**:
   - TypeScript interfaces and type definitions
   - Ensures type safety for the feature
+
+### `src/hooks/`
+
+Contains custom React hooks for shared functionality.
+
+- **Purpose**: Abstract common stateful logic and side effects
+- **Contents**:
+  - Feature-specific hooks
+  - Utility hooks
+  - Data fetching hooks
+- **Examples**:
+  - `useAuth.ts`: Authentication state and methods
+  - `useForm.ts`: Form handling logic
+  - `useLocalStorage.ts`: Local storage interactions
+
+### `src/lib/`
+
+Houses configuration and utility functions.
+
+- **Purpose**: Centralize application configuration and common utilities
+- **Structure**:
+  - `config/`: Application-wide configuration
+  - `theme/`: Theme system setup
+  - `translation/`: Internationalization configuration
+  - `utils/`: Helper functions and utilities
+- **Examples**:
+  - `config/constants.ts`: Global constants
+  - `utils/formatters.ts`: Data formatting utilities
+  - `translation/i18n.ts`: Translation setup
 
 ### `src/routes/`
 
