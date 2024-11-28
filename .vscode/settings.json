@@ -1,0 +1,29 @@
+{
+    // Editor-specific settings for TypeScript and TypeScript React files
+    "[typescriptreact]": {
+      "editor.codeActionsOnSave": {
+        "source.removeUnusedImports": "explicit"
+      },
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.codeActionsOnSave": {
+        "source.removeUnusedImports": "explicit"
+      },
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // Enable ESLint for comprehensive code quality checks
+    "eslint.enable": true,
+    "eslint.probe": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "prettier.requireConfig": true,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.insertSpaces": true,
+}
