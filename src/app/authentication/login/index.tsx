@@ -1,7 +1,7 @@
 import { LoginForm } from '@/features/authentication/components/LoginForm';
 import {
-  LoginWrapper,
   LoginCard,
+  LoginWrapper,
 } from '@/features/authentication/styles/login-styles';
 import { useLoginMutation } from '@/services/authentication';
 

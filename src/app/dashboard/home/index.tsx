@@ -1,4 +1,4 @@
-import { Row, Col, Typography } from 'antd';
+import { Col, Row, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { StatCard } from '@/features/dashboard/components/StatCard';

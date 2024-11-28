@@ -1,8 +1,8 @@
 import { Typography } from 'antd';
 
 import {
-  StyledCard,
   StatNumber,
+  StyledCard,
 } from '@/features/dashboard/styles/dashboard-styles';
 
 const { Title } = Typography;

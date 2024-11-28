@@ -7,8 +7,8 @@ import ThemeProviderWrapper from './components/Providers/ThemeProviderWrapper';
 import i18n from '@/lib/translation/i18n';
 import { BaseRoutes } from '@/routes';
 
-import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { Spin } from '@/components/Atoms/Spin';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 const queryClient = new QueryClient({
   defaultOptions: {
